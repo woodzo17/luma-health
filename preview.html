@@ -89,63 +89,6 @@
             writing-mode: vertical-rl;
             text-orientation: mixed;
         }
-
-        /* Floating Person Animation */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .floating-person {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Scenario Tab Styles */
-        .scenario-tab {
-            background: rgba(255, 255, 255, 0.3);
-            border: 1px solid rgba(17, 17, 17, 0.1);
-            color: #111111;
-        }
-
-        .scenario-tab:hover {
-            background: rgba(255, 255, 255, 0.5);
-            border-color: rgba(160, 196, 255, 0.5);
-        }
-
-        .scenario-tab.active {
-            background: #111111;
-            color: white;
-            border-color: #111111;
-        }
-
-        /* Scenario Content */
-        .scenario-content {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .scenario-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 
@@ -159,9 +102,8 @@
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('hero-bg.jpg')">
         </div>
 
-        <!-- Gradient Overlay - Only Left Edge -->
-        <div class="absolute inset-0 bg-gradient-to-r from-[#F2F4F6] via-transparent to-transparent"
-            style="background: linear-gradient(to right, #F2F4F6 0%, #F2F4F6 5%, transparent 20%);"></div>
+        <!-- Gradient Overlay for Fade Effect - More Subtle -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#F2F4F6] via-[#F2F4F6]/40 to-transparent"></div>
 
         <!-- HUD Elements -->
         <div class="absolute top-8 right-8 font-space text-[10px] text-charcoal/60 tracking-[0.2em] z-20">
@@ -188,14 +130,14 @@
 
                 <!-- Headline -->
                 <h1 class="font-playfair text-6xl md:text-7xl text-charcoal mb-6 leading-[0.9]">
-                    Your Future,<br />Simulated.
+                    Biological<br />Clarity.
                 </h1>
 
                 <!-- Description -->
                 <p class="font-inter text-charcoal/80 text-lg mb-10 leading-relaxed">
-                    Medicine creates a static file. We create a living model.
-                    Luma builds a digital twin of your biology to test therapies in-silico,
-                    so you don't have to guess.
+                    Medicine creates a file. We create a simulation.
+                    Luma builds a living digital twin of your biology
+                    to test therapies before you take a single dose.
                 </p>
 
                 <!-- Email Form -->
@@ -208,7 +150,7 @@
                                text-white font-inter font-medium text-sm tracking-wide
                                transition-all duration-300 transform hover:scale-[1.01]
                                flex items-center justify-center gap-2 group">
-                        Join the Beta
+                        Request Access
                         <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -218,134 +160,6 @@
 
                     <p id="statusMessage" class="text-center font-space text-xs hidden"></p>
                 </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- THE SIMULATION ENGINE SECTION -->
-    <section class="min-h-screen py-32 px-6 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Left Column: Floating Person Image -->
-                <div
-                    class="scroll-reveal order-2 lg:order-1 relative h-[600px] lg:h-[700px] flex items-center justify-center">
-                    <div class="floating-person absolute inset-0 flex items-center justify-center">
-                        <img src="simulation-person.jpg" alt="Digital Twin Simulation"
-                            class="h-full w-auto object-contain"
-                            style="mask-image: radial-gradient(circle at center, black 40%, transparent 90%); -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);">
-                    </div>
-                </div>
-
-                <!-- Right Column: Interactive Dashboard -->
-                <div class="scroll-reveal order-1 lg:order-2">
-                    <h2 class="font-playfair text-5xl md:text-6xl text-charcoal mb-4">
-                        The Scenario Engine.
-                    </h2>
-                    <p class="font-inter text-xl text-charcoal/70 mb-12 leading-relaxed">
-                        We test every health decision in-silico before you risk your biology.
-                    </p>
-
-                    <!-- Glassmorphism Dashboard Card -->
-                    <div class="glass-card rounded-3xl p-8 md:p-10">
-                        <!-- Tab Pills -->
-                        <div class="flex flex-wrap gap-3 mb-8">
-                            <button onclick="switchTab('pharma')" id="tab-pharma"
-                                class="scenario-tab active px-6 py-3 rounded-full font-space text-xs tracking-wider uppercase transition-all duration-300">
-                                PHARMA
-                            </button>
-                            <button onclick="switchTab('nutrition')" id="tab-nutrition"
-                                class="scenario-tab px-6 py-3 rounded-full font-space text-xs tracking-wider uppercase transition-all duration-300">
-                                NUTRITION
-                            </button>
-                            <button onclick="switchTab('compounds')" id="tab-compounds"
-                                class="scenario-tab px-6 py-3 rounded-full font-space text-xs tracking-wider uppercase transition-all duration-300">
-                                COMPOUNDS
-                            </button>
-                        </div>
-
-                        <!-- Dynamic Content Area -->
-                        <div id="scenario-content" class="min-h-[200px]">
-                            <!-- Pharma Content (Default) -->
-                            <div id="content-pharma" class="scenario-content active">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <div class="w-2 h-2 rounded-full bg-holo-blue animate-pulse"></div>
-                                    <span
-                                        class="font-space text-xs tracking-wider text-charcoal/60 uppercase">Simulating
-                                        Rapamycin...</span>
-                                </div>
-                                <h3 class="font-playfair text-3xl text-charcoal mb-6">Life Extension +2.4 Years</h3>
-                                <div class="space-y-3 font-inter text-sm text-charcoal/70">
-                                    <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
-                                        <span>mTOR Inhibition</span>
-                                        <span class="font-space text-holo-blue">+18%</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
-                                        <span>Autophagy Activation</span>
-                                        <span class="font-space text-holo-blue">+24%</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
-                                        <span>Cellular Senescence</span>
-                                        <span class="font-space text-holo-blue">-12%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Nutrition Content -->
-                            <div id="content-nutrition" class="scenario-content">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                                    <span
-                                        class="font-space text-xs tracking-wider text-charcoal/60 uppercase">Simulating
-                                        Carnivore Diet...</span>
-                                </div>
-                                <h3 class="font-playfair text-3xl text-charcoal mb-6">LDL Particle Spike Detected</h3>
-                                <div class="p-4 bg-red-50 border border-red-200 rounded-lg mb-4">
-                                    <p class="font-inter text-sm text-red-800 font-medium">⚠️ Warning: Cardiovascular
-                                        Risk Elevated</p>
-                                </div>
-                                <div class="space-y-3 font-inter text-sm text-charcoal/70">
-                                    <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
-                                        <span>LDL-P Count</span>
-                                        <span class="font-space text-red-600">+42%</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
-                                        <span>ApoB Levels</span>
-                                        <span class="font-space text-red-600">+38%</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
-                                        <span>Inflammation (CRP)</span>
-                                        <span class="font-space text-holo-blue">-8%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Compounds Content -->
-                            <div id="content-compounds" class="scenario-content">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <div class="w-2 h-2 rounded-full bg-holo-blue animate-pulse"></div>
-                                    <span
-                                        class="font-space text-xs tracking-wider text-charcoal/60 uppercase">Simulating
-                                        MOTS-c Peptide...</span>
-                                </div>
-                                <h3 class="font-playfair text-3xl text-charcoal mb-6">Mitochondrial Efficiency +15%</h3>
-                                <div class="space-y-3 font-inter text-sm text-charcoal/70">
-                                    <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
-                                        <span>ATP Production</span>
-                                        <span class="font-space text-holo-blue">+15%</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
-                                        <span>Insulin Sensitivity</span>
-                                        <span class="font-space text-holo-blue">+22%</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
-                                        <span>Metabolic Rate</span>
-                                        <span class="font-space text-holo-blue">+11%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -411,7 +225,7 @@
                         <h3 class="font-playfair text-3xl text-charcoal mb-2">Mitochondrial Efficiency</h3>
                     </div>
                     <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Optimize energy substrate use and eliminate visceral fat.
+                        Visceral fat control and energy substrate optimization.
                     </div>
                 </div>
 
@@ -426,7 +240,7 @@
                         <h3 class="font-playfair text-3xl text-charcoal mb-2">Structural Integrity</h3>
                     </div>
                     <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Fortify bone density and preserve lean muscle mass.
+                        Muscle density, bone fortification, and recovery kinetics.
                     </div>
                 </div>
 
@@ -441,7 +255,7 @@
                         <h3 class="font-playfair text-3xl text-charcoal mb-2">Neuroplasticity</h3>
                     </div>
                     <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Enhance processing speed, memory encoding, and focus.
+                        Focus retention, memory encoding, and processing speed.
                     </div>
                 </div>
 
@@ -456,7 +270,7 @@
                         <h3 class="font-playfair text-3xl text-charcoal mb-2">Endocrine Balance</h3>
                     </div>
                     <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Regulate cortisol spikes and optimize drive.
+                        Cortisol regulation, testosterone/estrogen optimization.
                     </div>
                 </div>
 
@@ -471,7 +285,7 @@
                         <h3 class="font-playfair text-3xl text-charcoal mb-2">Defense Matrix</h3>
                     </div>
                     <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Lower systemic inflammation (CRP) and strengthen resilience.
+                        Systemic inflammation control and pathogen response.
                     </div>
                 </div>
             </div>
@@ -481,9 +295,9 @@
     <!-- THE SIMULATION LOGIC - Technical Diagram -->
     <section class="py-32 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 md:gap-24">
-                <div class="scroll-reveal md:sticky md:top-32 h-fit">
-                    <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-charcoal mb-6 md:mb-8 leading-tight">
+            <div class="grid md:grid-cols-2 gap-24">
+                <div class="scroll-reveal sticky top-32 h-fit">
+                    <h2 class="font-playfair text-5xl md:text-6xl text-charcoal mb-8 leading-tight">
                         We test on your Twin,<br>
                         <span class="text-charcoal/30">not on you.</span>
                     </h2>
@@ -506,10 +320,10 @@
                     <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
                         <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-charcoal"></div>
                         <div class="font-space text-xs tracking-[0.2em] text-charcoal/40 mb-4 uppercase">Phase 01</div>
-                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Biometric Mapping</h3>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Data Ingestion</h3>
                         <p class="font-inter text-charcoal/60 leading-relaxed">
-                            We aggregate your blood panels, wearable metrics, and DNA into a
-                            high-fidelity biological profile.
+                            We aggregate your blood biomarkers, wearable metrics, genetic data,
+                            and lifestyle inputs into a unified data lake.
                         </p>
                     </div>
 
@@ -517,10 +331,10 @@
                     <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
                         <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-holo-blue"></div>
                         <div class="font-space text-xs tracking-[0.2em] text-holo-blue mb-4 uppercase">Phase 02</div>
-                        <h3 class="font-playfair text-3xl text-charcoal mb-4">The Probability Engine</h3>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Parallel Simulation</h3>
                         <p class="font-inter text-charcoal/60 leading-relaxed">
-                            We run 10,000+ scenarios against your model to predict how your body
-                            reacts to specific peptides.
+                            Our engine runs 10,000+ scenarios against your biological model
+                            to predict outcomes of various intervention protocols.
                         </p>
                     </div>
 
@@ -528,10 +342,10 @@
                     <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
                         <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-charcoal"></div>
                         <div class="font-space text-xs tracking-[0.2em] text-charcoal/40 mb-4 uppercase">Phase 03</div>
-                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Precision Deployment</h3>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Protocol Deployment</h3>
                         <p class="font-inter text-charcoal/60 leading-relaxed">
-                            You receive the single highest-probability protocol, verified by physicians
-                            for your unique biology.
+                            You receive the single highest-probability protocol, personalized
+                            to your unique biology and goals.
                         </p>
                     </div>
                 </div>
@@ -557,7 +371,7 @@
             <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="px-12 py-5 rounded-full bg-white hover:bg-white/90 
                        text-charcoal font-inter font-medium tracking-wide text-lg
                        transition-all duration-300 transform hover:scale-105">
-                Initialize Sequence
+                Join the Waitlist
             </button>
 
             <div
@@ -602,15 +416,15 @@
             submitButton.innerHTML = 'Joining...';
 
             try {
-                await fetch('https://script.google.com/macros/s/AKfycbxSSq6EiH2l9_7_m7ZLLzGwqLkKTGhaM5Jrvymf7vBL87EYXTQnUl5DXeCQ897_xUY/exec', {
+                await fetch('https://script.google.com/macros/s/AKfycbzxK9ODcgxUgFElQCbVlFYqg2VcuXLe4pMfnTkmmOC_SX61z_8xEQebRSK7QRCR6w8/exec', {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: emailInput.value })
                 });
 
-                statusMessage.textContent = '✓ You\'re on the list! We\'ll be in touch.';
-                statusMessage.className = 'text-center text-charcoal font-space text-xs mt-4';
+                statusMessage.textContent = '✓ You\'re on the list! Check your email.';
+                statusMessage.className = 'text-center text-green-600 font-space text-xs mt-4';
                 statusMessage.classList.remove('hidden');
                 emailInput.value = '';
             } catch (error) {
@@ -622,17 +436,6 @@
                 submitButton.innerHTML = `Request Access <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>`;
             }
         });
-
-        // Tab switching for Simulation Engine
-        function switchTab(tabName) {
-            // Remove active class from all tabs and content
-            document.querySelectorAll('.scenario-tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.scenario-content').forEach(content => content.classList.remove('active'));
-
-            // Add active class to selected tab and content
-            document.getElementById(`tab-${tabName}`).classList.add('active');
-            document.getElementById(`content-${tabName}`).classList.add('active');
-        }
     </script>
 </body>
 
