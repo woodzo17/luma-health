@@ -296,9 +296,9 @@
     <!-- THE SIMULATION LOGIC - Technical Diagram -->
     <section class="py-32 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-24">
-                <div class="scroll-reveal sticky top-32 h-fit">
-                    <h2 class="font-playfair text-5xl md:text-6xl text-charcoal mb-8 leading-tight">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-24">
+                <div class="scroll-reveal md:sticky md:top-32 h-fit">
+                    <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-charcoal mb-6 md:mb-8 leading-tight">
                         We test on your Twin,<br>
                         <span class="text-charcoal/30">not on you.</span>
                     </h2>
@@ -425,7 +425,7 @@
                 });
 
                 statusMessage.textContent = '✓ You\'re on the list! We\'ll be in touch.';
-                statusMessage.className = 'text-center text-green-600 font-space text-xs mt-4';
+                statusMessage.className = 'text-center text-charcoal font-space text-xs mt-4';
                 statusMessage.classList.remove('hidden');
                 emailInput.value = '';
             } catch (error) {
