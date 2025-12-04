@@ -108,6 +108,42 @@
             /* animation: float 6s ease-in-out infinite; */
         }
 
+        /* DNA Rotation Animation */
+        @keyframes rotate-dna {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .dna-helix {
+            animation: rotate-dna 20s linear infinite;
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-container {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-content {
+            animation: marquee 30s linear infinite;
+            width: max-content;
+        }
+
         /* Scenario Tab Styles */
         .scenario-tab {
             background: rgba(255, 255, 255, 0.3);
@@ -228,39 +264,81 @@
     <!-- THE PROBLEM SECTION - Dark Mode Contrast -->
     <section class="bg-charcoal text-white py-24 md:py-32 px-6 relative">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="scroll-reveal">
-                    <div class="font-space text-xs tracking-[0.2em] text-white/40 mb-8 uppercase">
-                        The Paradigm Shift
-                    </div>
-                    <h2 class="font-playfair text-5xl md:text-7xl leading-[1.1] mb-8">
-                        Medicine waits for the crash.<br>
-                        <span class="text-white/30">We predict the trajectory.</span>
-                    </h2>
+            <div class="scroll-reveal">
+                <div class="font-space text-xs tracking-[0.2em] text-white/40 mb-8 uppercase">
+                    The Paradigm Shift
                 </div>
+                <h2 class="font-playfair text-5xl md:text-7xl leading-[1.1] mb-8">
+                    Medicine waits for the crash.<br>
+                    <span class="text-white/30">We predict the trajectory.</span>
+                </h2>
+            </div>
 
-                <div class="scroll-reveal delay-200">
-                    <p class="font-inter text-xl text-white/70 leading-relaxed mb-12">
-                        Your current healthcare is reactive—a file opened only when you break.
-                        Luma is the inverse. A continuous, living simulation that models your
-                        future health to prevent fractures before they appear.
-                    </p>
+            <div class="scroll-reveal delay-200">
+                <p class="font-inter text-xl text-white/70 leading-relaxed mb-12">
+                    Your current healthcare is reactive—a file opened only when you break.
+                    Luma is the inverse. A continuous, living simulation that models your
+                    future health to prevent fractures before they appear.
+                </p>
 
-                    <div class="flex items-center gap-12 border-t border-white/10 pt-8">
-                        <div>
-                            <div class="font-playfair text-4xl mb-2">01</div>
-                            <div class="font-space text-xs tracking-wider text-white/40">REACTIVE CARE</div>
-                        </div>
-                        <div class="h-px w-16 bg-white/20"></div>
-                        <div>
-                            <div class="font-playfair text-4xl mb-2 text-holo-blue">02</div>
-                            <div class="font-space text-xs tracking-wider text-holo-blue">PREDICTIVE MODEL</div>
-                        </div>
+                <div class="flex items-center gap-12 border-t border-white/10 pt-8">
+                    <div>
+                        <div class="font-playfair text-4xl mb-2">01</div>
+                        <div class="font-space text-xs tracking-wider text-white/40">REACTIVE CARE</div>
+                    </div>
+                    <div class="h-px w-16 bg-white/20"></div>
+                    <div>
+                        <div class="font-playfair text-4xl mb-2 text-holo-blue">02</div>
+                        <div class="font-space text-xs tracking-wider text-holo-blue">PREDICTIVE MODEL</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- INTEGRATIONS TICKER -->
+    <div class="bg-charcoal border-t border-white/10 py-6 overflow-hidden relative z-20">
+        <div class="marquee-container flex items-center">
+            <div class="marquee-content flex items-center gap-12 px-6">
+                <span class="font-space text-xs text-white/40 tracking-wider whitespace-nowrap">SEAMLESS INTEGRATION
+                    WITH:</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">OURA</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">WHOOP</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">APPLE HEALTH</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">23ANDME</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">ANCESTRY DNA</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">LABCORP</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">QUEST DIAGNOSTICS</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">DEXCOM</span>
+
+                <!-- Duplicate for infinite loop -->
+                <span class="font-space text-xs text-white/40 tracking-wider whitespace-nowrap ml-12">SEAMLESS
+                    INTEGRATION WITH:</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">OURA</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">WHOOP</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">APPLE HEALTH</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">23ANDME</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">ANCESTRY DNA</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">LABCORP</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">QUEST DIAGNOSTICS</span>
+                <span class="text-white/20">•</span>
+                <span class="font-space text-lg text-white/60 whitespace-nowrap">DEXCOM</span>
+            </div>
+        </div>
+    </div>
 
     <!-- THE SIMULATION ENGINE SECTION -->
     <section class="py-16 md:py-32 px-6 bg-white relative">
@@ -405,79 +483,84 @@
                 </p>
             </div>
 
-            <div class="space-y-px bg-charcoal/10 border-t border-b border-charcoal/10">
-                <!-- Metabolic -->
+            <div class="space-y-px bg-charcoal/10">
+                <!-- Pillar 1 -->
                 <div
-                    class="group relative bg-[#F5F7F9] hover:bg-white transition-colors duration-500 py-12 px-4 md:px-8 grid md:grid-cols-12 gap-8 items-center cursor-default">
-                    <div
-                        class="md:col-span-3 font-space text-xs tracking-[0.2em] text-charcoal/40 uppercase group-hover:text-holo-blue transition-colors">
-                        01 / Metabolic
-                    </div>
-                    <div class="md:col-span-5">
-                        <h3 class="font-playfair text-3xl text-charcoal mb-2">Mitochondrial Efficiency</h3>
-                    </div>
-                    <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Optimize energy substrate use and eliminate visceral fat.
+                    class="group border-t border-charcoal/10 py-6 md:py-8 hover:bg-white transition-colors duration-300">
+                    <div class="grid md:grid-cols-12 gap-4 md:gap-8 items-start md:items-center">
+                        <div class="md:col-span-3 font-space text-xs tracking-wider text-charcoal/40 uppercase">
+                            01 // METABOLIC
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3
+                                class="font-playfair text-2xl md:text-3xl text-charcoal mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                                Optimize energy substrate use and eliminate visceral fat.
+                            </h3>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Physical -->
+                <!-- Pillar 2 -->
                 <div
-                    class="group relative bg-[#F5F7F9] hover:bg-white transition-colors duration-500 py-12 px-4 md:px-8 grid md:grid-cols-12 gap-8 items-center cursor-default">
-                    <div
-                        class="md:col-span-3 font-space text-xs tracking-[0.2em] text-charcoal/40 uppercase group-hover:text-holo-blue transition-colors">
-                        02 / Physical
-                    </div>
-                    <div class="md:col-span-5">
-                        <h3 class="font-playfair text-3xl text-charcoal mb-2">Structural Integrity</h3>
-                    </div>
-                    <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Fortify bone density and preserve lean muscle mass.
+                    class="group border-t border-charcoal/10 py-6 md:py-8 hover:bg-white transition-colors duration-300">
+                    <div class="grid md:grid-cols-12 gap-4 md:gap-8 items-start md:items-center">
+                        <div class="md:col-span-3 font-space text-xs tracking-wider text-charcoal/40 uppercase">
+                            02 // PHYSICAL
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3
+                                class="font-playfair text-2xl md:text-3xl text-charcoal mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                                Fortify bone density and preserve lean muscle mass.
+                            </h3>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Cognitive -->
+                <!-- Pillar 3 -->
                 <div
-                    class="group relative bg-[#F5F7F9] hover:bg-white transition-colors duration-500 py-12 px-4 md:px-8 grid md:grid-cols-12 gap-8 items-center cursor-default">
-                    <div
-                        class="md:col-span-3 font-space text-xs tracking-[0.2em] text-charcoal/40 uppercase group-hover:text-holo-blue transition-colors">
-                        03 / Cognitive
-                    </div>
-                    <div class="md:col-span-5">
-                        <h3 class="font-playfair text-3xl text-charcoal mb-2">Neuroplasticity</h3>
-                    </div>
-                    <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Enhance processing speed, memory encoding, and focus.
+                    class="group border-t border-charcoal/10 py-6 md:py-8 hover:bg-white transition-colors duration-300">
+                    <div class="grid md:grid-cols-12 gap-4 md:gap-8 items-start md:items-center">
+                        <div class="md:col-span-3 font-space text-xs tracking-wider text-charcoal/40 uppercase">
+                            03 // COGNITIVE
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3
+                                class="font-playfair text-2xl md:text-3xl text-charcoal mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                                Enhance processing speed, memory encoding, and focus.
+                            </h3>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Hormonal -->
+                <!-- Pillar 4 -->
                 <div
-                    class="group relative bg-[#F5F7F9] hover:bg-white transition-colors duration-500 py-12 px-4 md:px-8 grid md:grid-cols-12 gap-8 items-center cursor-default">
-                    <div
-                        class="md:col-span-3 font-space text-xs tracking-[0.2em] text-charcoal/40 uppercase group-hover:text-holo-blue transition-colors">
-                        04 / Hormonal
-                    </div>
-                    <div class="md:col-span-5">
-                        <h3 class="font-playfair text-3xl text-charcoal mb-2">Endocrine Balance</h3>
-                    </div>
-                    <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Regulate cortisol spikes and optimize drive.
+                    class="group border-t border-charcoal/10 py-6 md:py-8 hover:bg-white transition-colors duration-300">
+                    <div class="grid md:grid-cols-12 gap-4 md:gap-8 items-start md:items-center">
+                        <div class="md:col-span-3 font-space text-xs tracking-wider text-charcoal/40 uppercase">
+                            04 // HORMONAL
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3
+                                class="font-playfair text-2xl md:text-3xl text-charcoal mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                                Regulate cortisol spikes and optimize drive.
+                            </h3>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Immunity -->
+                <!-- Pillar 5 -->
                 <div
-                    class="group relative bg-[#F5F7F9] hover:bg-white transition-colors duration-500 py-12 px-4 md:px-8 grid md:grid-cols-12 gap-8 items-center cursor-default">
-                    <div
-                        class="md:col-span-3 font-space text-xs tracking-[0.2em] text-charcoal/40 uppercase group-hover:text-holo-blue transition-colors">
-                        05 / Immunity
-                    </div>
-                    <div class="md:col-span-5">
-                        <h3 class="font-playfair text-3xl text-charcoal mb-2">Defense Matrix</h3>
-                    </div>
-                    <div class="md:col-span-4 font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Lower systemic inflammation (CRP) and strengthen resilience.
+                    class="group border-t border-b border-charcoal/10 py-6 md:py-8 hover:bg-white transition-colors duration-300">
+                    <div class="grid md:grid-cols-12 gap-4 md:gap-8 items-start md:items-center">
+                        <div class="md:col-span-3 font-space text-xs tracking-wider text-charcoal/40 uppercase">
+                            05 // IMMUNITY
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3
+                                class="font-playfair text-2xl md:text-3xl text-charcoal mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                                Lower systemic inflammation (CRP) and strengthen resilience.
+                            </h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -488,7 +571,27 @@
     <section class="py-24 md:py-32 px-6 bg-white relative">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 md:gap-24">
-                <div class="scroll-reveal md:sticky md:top-32 h-fit">
+                <div class="scroll-reveal md:sticky md:top-32 h-fit relative">
+                    <!-- DNA Helix Background -->
+                    <div
+                        class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
+                        <svg class="w-[300px] h-[300px] md:w-[500px] md:h-[500px] text-charcoal dna-helix"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 15c6.667-6 13.333 0 20-6" />
+                            <path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993" />
+                            <path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993" />
+                            <path d="M17 6l-2.5-2.5" />
+                            <path d="M14 8l-1-1" />
+                            <path d="M7 18l2.5 2.5" />
+                            <path d="M3.5 14.5l.5.5" />
+                            <path d="M20 9l.5.5" />
+                            <path d="M6.5 12.5l1 1" />
+                            <path d="M16.5 10.5l1 1" />
+                            <path d="M10 16l1.5 1.5" />
+                        </svg>
+                    </div>
+
                     <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-charcoal mb-6 md:mb-8 leading-tight">
                         We test on your Twin,<br>
                         <span class="text-charcoal/30">not on you.</span>
@@ -557,7 +660,7 @@
                 <span>//</span>
                 <span>CLIA CERTIFIED</span>
                 <span>//</span>
-                <span>DOCTOR LED</span>
+                <span>PHYSICIAN LED</span>
             </div>
 
             <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="px-12 py-5 rounded-full bg-white hover:bg-white/90 
