@@ -261,12 +261,12 @@
     </section>
 
     <!-- THE SIMULATION ENGINE SECTION -->
-    <section class="min-h-screen py-32 px-6 bg-white relative overflow-hidden">
+    <section class="py-16 md:py-32 px-6 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
                 <!-- Left Column: Floating Person Image -->
                 <div
-                    class="scroll-reveal order-2 lg:order-1 relative h-[600px] lg:h-[700px] flex items-center justify-center">
+                    class="scroll-reveal order-2 lg:order-1 relative h-[400px] md:h-[600px] lg:h-[700px] flex items-center justify-center">
                     <div class="floating-person absolute inset-0 flex items-center justify-center">
                         <img src="simulation-person.jpg" alt="Digital Twin Simulation"
                             class="h-full w-auto object-contain"
@@ -284,19 +284,19 @@
                     </p>
 
                     <!-- Glassmorphism Dashboard Card -->
-                    <div class="glass-card rounded-3xl p-8 md:p-10">
+                    <div class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10">
                         <!-- Tab Pills -->
-                        <div class="flex flex-wrap gap-3 mb-8">
+                        <div class="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
                             <button onclick="switchTab('pharma')" id="tab-pharma"
-                                class="scenario-tab active px-6 py-3 rounded-full font-space text-xs tracking-wider uppercase transition-all duration-300">
+                                class="scenario-tab active px-4 md:px-6 py-2 md:py-3 rounded-full font-space text-[10px] md:text-xs tracking-wider uppercase transition-all duration-300">
                                 PHARMA
                             </button>
                             <button onclick="switchTab('nutrition')" id="tab-nutrition"
-                                class="scenario-tab px-6 py-3 rounded-full font-space text-xs tracking-wider uppercase transition-all duration-300">
+                                class="scenario-tab px-4 md:px-6 py-2 md:py-3 rounded-full font-space text-[10px] md:text-xs tracking-wider uppercase transition-all duration-300">
                                 NUTRITION
                             </button>
                             <button onclick="switchTab('compounds')" id="tab-compounds"
-                                class="scenario-tab px-6 py-3 rounded-full font-space text-xs tracking-wider uppercase transition-all duration-300">
+                                class="scenario-tab px-4 md:px-6 py-2 md:py-3 rounded-full font-space text-[10px] md:text-xs tracking-wider uppercase transition-all duration-300">
                                 COMPOUNDS
                             </button>
                         </div>
@@ -311,7 +311,8 @@
                                         class="font-space text-xs tracking-wider text-charcoal/60 uppercase">Simulating
                                         Rapamycin...</span>
                                 </div>
-                                <h3 class="font-playfair text-3xl text-charcoal mb-6">Life Extension +2.4 Years</h3>
+                                <h3 class="font-playfair text-2xl md:text-3xl text-charcoal mb-4 md:mb-6">Life Extension
+                                    +2.4 Years</h3>
                                 <div class="space-y-3 font-inter text-sm text-charcoal/70">
                                     <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
                                         <span>mTOR Inhibition</span>
@@ -336,7 +337,8 @@
                                         class="font-space text-xs tracking-wider text-charcoal/60 uppercase">Simulating
                                         Carnivore Diet...</span>
                                 </div>
-                                <h3 class="font-playfair text-3xl text-charcoal mb-6">LDL Particle Spike Detected</h3>
+                                <h3 class="font-playfair text-2xl md:text-3xl text-charcoal mb-4 md:mb-6">LDL Particle
+                                    Spike Detected</h3>
                                 <div class="p-4 bg-red-50 border border-red-200 rounded-lg mb-4">
                                     <p class="font-inter text-sm text-red-800 font-medium">⚠️ Warning: Cardiovascular
                                         Risk Elevated</p>
@@ -365,7 +367,8 @@
                                         class="font-space text-xs tracking-wider text-charcoal/60 uppercase">Simulating
                                         MOTS-c Peptide...</span>
                                 </div>
-                                <h3 class="font-playfair text-3xl text-charcoal mb-6">Mitochondrial Efficiency +15%</h3>
+                                <h3 class="font-playfair text-2xl md:text-3xl text-charcoal mb-4 md:mb-6">Mitochondrial
+                                    Efficiency +15%</h3>
                                 <div class="space-y-3 font-inter text-sm text-charcoal/70">
                                     <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
                                         <span>ATP Production</span>
