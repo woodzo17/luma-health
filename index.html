@@ -675,6 +675,168 @@
         </div>
     </section>
 
+    <!-- PREDICTIVE ACCURACY SECTION -->
+    <section class="py-24 md:py-32 px-6 bg-charcoal relative overflow-hidden text-white">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;">
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left: Content & Tiers -->
+                <div>
+                    <div class="font-space text-xs tracking-[0.2em] text-holo-blue mb-6 uppercase">
+                        Model Validation
+                    </div>
+                    <h2 class="font-playfair text-4xl md:text-5xl mb-6 leading-tight">
+                        The Confidence Meter.
+                    </h2>
+                    <p class="font-inter text-white/60 text-lg mb-12 leading-relaxed">
+                        Combining continuous data with objective clinical biomarkers significantly boosts accuracy over
+                        single-source models.
+                    </p>
+
+                    <!-- Tiers List -->
+                    <div class="space-y-4">
+                        <!-- Tier 1 -->
+                        <div id="tier-1"
+                            class="tier-card group cursor-pointer p-6 rounded-2xl border border-holo-blue/30 bg-holo-blue/10 shadow-[0_0_30px_rgba(160,196,255,0.1)] transition-all duration-300"
+                            onclick="setConfidence(1)">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-playfair text-xl text-white">I. The Baseline</h3>
+                                <span class="font-space text-xs text-white">55% ACCURACY</span>
+                            </div>
+                            <p class="font-inter text-sm text-white/70 leading-relaxed">
+                                Questionnaire Only. Low, Static Insight. Relies on broad population statistics.
+                            </p>
+                        </div>
+
+                        <!-- Tier 2 -->
+                        <div id="tier-2"
+                            class="tier-card group cursor-pointer p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300"
+                            onclick="setConfidence(2)">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3
+                                    class="font-playfair text-xl text-white/60 group-hover:text-white transition-colors">
+                                    II. The Dynamic</h3>
+                                <span
+                                    class="font-space text-xs text-white/40 group-hover:text-white transition-colors">75%
+                                    ACCURACY</span>
+                            </div>
+                            <p
+                                class="font-inter text-sm text-white/50 group-hover:text-white/70 leading-relaxed transition-colors">
+                                Wearables + Survey. Upgrade the model with continuous, objective wearable
+                                data—increasing predictive accuracy by over 20 points.
+                            </p>
+                        </div>
+
+                        <!-- Tier 3 -->
+                        <div id="tier-3"
+                            class="tier-card group cursor-pointer p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300"
+                            onclick="setConfidence(3)">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3
+                                    class="font-playfair text-xl text-white/60 group-hover:text-white transition-colors">
+                                    III. The Clinical Twin</h3>
+                                <span
+                                    class="font-space text-xs text-white/40 group-hover:text-white transition-colors">95%
+                                    ACCURACY</span>
+                            </div>
+                            <p
+                                class="font-inter text-sm text-white/50 group-hover:text-white/70 leading-relaxed transition-colors">
+                                Clinical Labs + Wearables. Unlock maximum accuracy by integrating clinical biomarkers
+                                for multi-layered validation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: The Meter Visualization -->
+                <div class="flex justify-center items-center relative">
+                    <!-- Glow Effect -->
+                    <div
+                        class="absolute w-[500px] h-[500px] bg-holo-blue/10 rounded-full blur-[100px] pointer-events-none">
+                    </div>
+
+                    <div class="relative w-80 h-80 md:w-96 md:h-96">
+                        <!-- SVG Gauge -->
+                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                            <!-- Track -->
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)"
+                                stroke-width="6" />
+                            <!-- Progress -->
+                            <circle id="confidence-meter-fill" cx="50" cy="50" r="45" fill="none" stroke="#A0C4FF"
+                                stroke-width="6" stroke-dasharray="283" stroke-dashoffset="127" stroke-linecap="round"
+                                class="transition-all duration-1000 ease-out drop-shadow-[0_0_10px_rgba(160,196,255,0.5)]" />
+                        </svg>
+
+                        <!-- Center Text -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                            <div id="confidence-percent"
+                                class="font-playfair text-6xl md:text-7xl text-white mb-2 transition-all duration-500">
+                                55%</div>
+                            <div id="confidence-label"
+                                class="font-space text-xs tracking-widest text-holo-blue uppercase">Predictive Power
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function setConfidence(tier) {
+            const meter = document.getElementById('confidence-meter-fill');
+            const percentText = document.getElementById('confidence-percent');
+            const cards = [
+                document.getElementById('tier-1'),
+                document.getElementById('tier-2'),
+                document.getElementById('tier-3')
+            ];
+
+            // Reset all cards
+            cards.forEach(card => {
+                card.className = 'tier-card group cursor-pointer p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300';
+
+                const title = card.querySelector('h3');
+                const badge = card.querySelector('span');
+                const desc = card.querySelector('p');
+
+                title.className = 'font-playfair text-xl text-white/60 group-hover:text-white transition-colors';
+                badge.className = 'font-space text-xs text-white/40 group-hover:text-white transition-colors';
+                desc.className = 'font-inter text-sm text-white/50 group-hover:text-white/70 leading-relaxed transition-colors';
+            });
+
+            // Activate selected card
+            const activeCard = cards[tier - 1];
+            activeCard.className = 'tier-card group cursor-pointer p-6 rounded-2xl border border-holo-blue/30 bg-holo-blue/10 shadow-[0_0_30px_rgba(160,196,255,0.1)] transition-all duration-300';
+
+            const activeTitle = activeCard.querySelector('h3');
+            const activeBadge = activeCard.querySelector('span');
+            const activeDesc = activeCard.querySelector('p');
+
+            activeTitle.className = 'font-playfair text-xl text-white';
+            activeBadge.className = 'font-space text-xs text-white';
+            activeDesc.className = 'font-inter text-sm text-white/70 leading-relaxed';
+
+            // Update Meter
+            const circumference = 283;
+            let percent = 0;
+
+            if (tier === 1) percent = 0.55;
+            if (tier === 2) percent = 0.75;
+            if (tier === 3) percent = 0.95;
+
+            const offset = circumference - (percent * circumference);
+            meter.style.strokeDashoffset = offset;
+            percentText.textContent = (percent * 100) + '%';
+        }
+    </script>
+
     <!-- THE INTELLIGENCE PLATFORM (New Section) -->
     <section class="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
         <!-- Subtle Background Gradient -->
