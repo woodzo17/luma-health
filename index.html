@@ -497,211 +497,180 @@
                 </p>
             </div>
 
-            <!-- Vertical Spec Sheet Layout -->
-            <div class="border-t border-charcoal/10">
-                <!-- 01: Metabolic -->
-                <div
-                    class="group relative bg-white/40 hover:bg-white transition-all duration-500 border-b border-charcoal/10">
-                    <div class="p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
-                        <!-- Header -->
-                        <div class="md:col-span-4 lg:col-span-3">
-                            <div class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase mb-3">01 /
-                                Metabolic</div>
-                            <h3 class="font-playfair text-3xl md:text-4xl text-charcoal mb-2">Metabolic</h3>
-                            <p class="font-inter text-charcoal/50 text-sm leading-relaxed">
-                                Mitochondrial efficiency & visceral fat.
-                            </p>
-                        </div>
+            <!-- Bento Grid Layout: Balanced & Dense -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
 
-                        <!-- Data Inputs -->
-                        <div class="md:col-span-8 lg:col-span-9">
-                            <div class="flex flex-wrap gap-3 md:justify-end">
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">HbA1c</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">Visceral Fat</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">Triglycerides</span>
-                                </div>
+                <!-- 01: Metabolic (Span 2) -->
+                <div
+                    class="lg:col-span-2 group bg-white rounded-3xl p-8 border border-charcoal/5 hover:border-holo-blue/50 hover:shadow-[0_0_30px_rgba(160,196,255,0.1)] transition-all duration-500 flex flex-col justify-between h-full">
+                    <div class="mb-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase bg-holo-blue/5 px-3 py-1 rounded-full">01
+                                / Metabolic</span>
+                            <div
+                                class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.8)] animate-pulse">
                             </div>
+                        </div>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-3">Mitochondrial<br>Efficiency</h3>
+                        <p class="font-inter text-charcoal/50 text-xs leading-relaxed">
+                            Visceral fat control and energy substrate optimization.
+                        </p>
+                    </div>
+                    <!-- Data Pills -->
+                    <div class="space-y-2">
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>HbA1c</span>
+                            <span class="text-charcoal">OPTIMAL</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>Visceral Fat</span>
+                            <span class="text-charcoal">TRACKING</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] font-space text-charcoal/70">
+                            <span>Triglycerides</span>
+                            <span class="text-charcoal">STABLE</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 02: Physical -->
+                <!-- 02: Physical (Span 2) -->
                 <div
-                    class="group relative bg-white/40 hover:bg-white transition-all duration-500 border-b border-charcoal/10">
-                    <div class="p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
-                        <div class="md:col-span-4 lg:col-span-3">
-                            <div class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase mb-3">02 /
-                                Physical</div>
-                            <h3 class="font-playfair text-3xl md:text-4xl text-charcoal mb-2">Physical</h3>
-                            <p class="font-inter text-charcoal/50 text-sm leading-relaxed">
-                                Structural integrity & muscle mass.
-                            </p>
-                        </div>
-                        <div class="md:col-span-8 lg:col-span-9">
-                            <div class="flex flex-wrap gap-3 md:justify-end">
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">DEXA Scan</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">VO2 Max</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">Grip Strength</span>
-                                </div>
+                    class="lg:col-span-2 group bg-white rounded-3xl p-8 border border-charcoal/5 hover:border-holo-blue/50 hover:shadow-[0_0_30px_rgba(160,196,255,0.1)] transition-all duration-500 flex flex-col justify-between h-full">
+                    <div class="mb-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase bg-holo-blue/5 px-3 py-1 rounded-full">02
+                                / Physical</span>
+                            <div
+                                class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.8)] animate-pulse">
                             </div>
+                        </div>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-3">Structural<br>Integrity</h3>
+                        <p class="font-inter text-charcoal/50 text-xs leading-relaxed">
+                            Muscle density, bone fortification, and recovery kinetics.
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>DEXA Scan</span>
+                            <span class="text-charcoal">IMPORTED</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>VO2 Max</span>
+                            <span class="text-charcoal">48.2 ml/kg</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] font-space text-charcoal/70">
+                            <span>Grip Strength</span>
+                            <span class="text-charcoal">TOP 5%</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 03: Cognitive -->
+                <!-- 03: Cognitive (Span 2) -->
                 <div
-                    class="group relative bg-white/40 hover:bg-white transition-all duration-500 border-b border-charcoal/10">
-                    <div class="p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
-                        <div class="md:col-span-4 lg:col-span-3">
-                            <div class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase mb-3">03 /
-                                Cognitive</div>
-                            <h3 class="font-playfair text-3xl md:text-4xl text-charcoal mb-2">Cognitive</h3>
-                            <p class="font-inter text-charcoal/50 text-sm leading-relaxed">
-                                Neuroplasticity & processing speed.
-                            </p>
-                        </div>
-                        <div class="md:col-span-8 lg:col-span-9">
-                            <div class="flex flex-wrap gap-3 md:justify-end">
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">Reaction Time</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">Sleep
-                                        Spindles</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">BDNF</span>
-                                </div>
+                    class="lg:col-span-2 group bg-white rounded-3xl p-8 border border-charcoal/5 hover:border-holo-blue/50 hover:shadow-[0_0_30px_rgba(160,196,255,0.1)] transition-all duration-500 flex flex-col justify-between h-full">
+                    <div class="mb-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase bg-holo-blue/5 px-3 py-1 rounded-full">03
+                                / Cognitive</span>
+                            <div
+                                class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.8)] animate-pulse">
                             </div>
+                        </div>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-3">Neuroplasticity<br>& Focus</h3>
+                        <p class="font-inter text-charcoal/50 text-xs leading-relaxed">
+                            Focus retention, memory encoding, and processing speed.
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>Reaction Time</span>
+                            <span class="text-charcoal">180ms</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>Sleep Spindles</span>
+                            <span class="text-charcoal">OPTIMAL</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] font-space text-charcoal/70">
+                            <span>BDNF Levels</span>
+                            <span class="text-charcoal">HIGH</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 04: Hormonal -->
+                <!-- 04: Hormonal (Span 3) -->
                 <div
-                    class="group relative bg-white/40 hover:bg-white transition-all duration-500 border-b border-charcoal/10">
-                    <div class="p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
-                        <div class="md:col-span-4 lg:col-span-3">
-                            <div class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase mb-3">04 /
-                                Hormonal</div>
-                            <h3 class="font-playfair text-3xl md:text-4xl text-charcoal mb-2">Hormonal</h3>
-                            <p class="font-inter text-charcoal/50 text-sm leading-relaxed">
-                                Endocrine balance & drive.
-                            </p>
+                    class="lg:col-span-3 group bg-white rounded-3xl p-8 border border-charcoal/5 hover:border-holo-blue/50 hover:shadow-[0_0_30px_rgba(160,196,255,0.1)] transition-all duration-500 flex flex-col md:flex-row gap-8 items-center">
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase bg-holo-blue/5 px-3 py-1 rounded-full">04
+                                / Hormonal</span>
                         </div>
-                        <div class="md:col-span-8 lg:col-span-9">
-                            <div class="flex flex-wrap gap-3 md:justify-end">
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">Free T</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">Cortisol</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">Estradiol</span>
-                                </div>
-                            </div>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-3">Endocrine Balance</h3>
+                        <p class="font-inter text-charcoal/50 text-xs leading-relaxed max-w-xs">
+                            Cortisol regulation, testosterone/estrogen optimization, and drive.
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-2 bg-[#F5F7F9] p-4 rounded-xl">
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>Free Testosterone</span>
+                            <span class="text-charcoal">OPTIMIZED</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>Cortisol (AM/PM)</span>
+                            <span class="text-charcoal">BALANCED</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] font-space text-charcoal/70">
+                            <span>Estradiol</span>
+                            <span class="text-charcoal">STABLE</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 05: Immunity -->
+                <!-- 05: Immunity (Span 3) -->
                 <div
-                    class="group relative bg-white/40 hover:bg-white transition-all duration-500 border-b border-charcoal/10">
-                    <div class="p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
-                        <div class="md:col-span-4 lg:col-span-3">
-                            <div class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase mb-3">05 /
-                                Immunity</div>
-                            <h3 class="font-playfair text-3xl md:text-4xl text-charcoal mb-2">Immunity</h3>
-                            <p class="font-inter text-charcoal/50 text-sm leading-relaxed">
-                                Inflammation & resilience.
-                            </p>
+                    class="lg:col-span-3 group bg-white rounded-3xl p-8 border border-charcoal/5 hover:border-holo-blue/50 hover:shadow-[0_0_30px_rgba(160,196,255,0.1)] transition-all duration-500 flex flex-col md:flex-row gap-8 items-center">
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="font-space text-[10px] tracking-[0.2em] text-holo-blue uppercase bg-holo-blue/5 px-3 py-1 rounded-full">05
+                                / Immunity</span>
                         </div>
-                        <div class="md:col-span-8 lg:col-span-9">
-                            <div class="flex flex-wrap gap-3 md:justify-end">
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">hs-CRP</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">IL-6</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 px-4 py-3 bg-white border border-charcoal/5 rounded-lg shadow-sm group-hover:border-holo-blue/30 transition-colors">
-                                    <div
-                                        class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.6)]">
-                                    </div>
-                                    <span class="font-space text-xs text-charcoal/80 tracking-wide">WBC Count</span>
-                                </div>
-                            </div>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-3">Defense Matrix</h3>
+                        <p class="font-inter text-charcoal/50 text-xs leading-relaxed max-w-xs">
+                            Systemic inflammation control, pathogen response, and resilience.
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-2 bg-[#F5F7F9] p-4 rounded-xl">
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>hs-CRP</span>
+                            <span class="text-charcoal">
+                                < 0.5 mg/L</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center text-[10px] font-space text-charcoal/70 border-b border-charcoal/5 pb-2">
+                            <span>IL-6</span>
+                            <span class="text-charcoal">LOW</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] font-space text-charcoal/70">
+                            <span>WBC Count</span>
+                            <span class="text-charcoal">OPTIMAL</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
