@@ -673,163 +673,101 @@
             </div>
         </div>
     </section>
-    <!-- PREDICTIVE ACCURACY SECTION -->
-    <section class="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
+    <!-- DATA PROGRESSION PATH SECTION -->
+    <section class="py-24 md:py-32 px-6 bg-white relative overflow-hidden border-t border-charcoal/5">
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-                <!-- Left: Content & Tiers -->
-                <div>
-                    <div class="font-space text-xs tracking-[0.2em] text-holo-blue mb-6 uppercase">
-                        Model Validation
-                    </div>
-                    <h2 class="font-playfair text-4xl md:text-5xl text-charcoal mb-6 leading-tight">
-                        The Confidence Meter.
-                    </h2>
-                    <p class="font-inter text-charcoal/60 text-lg mb-12 leading-relaxed">
-                        Combining continuous data with objective clinical biomarkers
-                        significantly boosts
-                        accuracy over single-source models.
-                    </p>
+            <!-- Header -->
+            <div class="text-center mb-20 max-w-3xl mx-auto">
+                <h2 class="font-playfair text-4xl md:text-5xl text-charcoal mb-6 leading-tight">
+                    The Data Path to<br>Predictive Health.
+                </h2>
+                <p class="font-inter text-charcoal/60 text-lg leading-relaxed">
+                    The Simulation is accessible to everyone. While only the questionnaire is required, the highest
+                    degree of accuracy relies on objective biomarkers—making continuous wearable data and clinical
+                    bloodwork key.
+                </p>
+            </div>
 
-                    <!-- Tiers List -->
-                    <div class="space-y-4">
-                        <!-- Tier 1 -->
-                        <div id="tier-1"
-                            class="tier-card group cursor-pointer p-6 rounded-2xl border border-holo-blue/50 bg-holo-blue/5 shadow-[0_0_30px_rgba(160,196,255,0.1)] transition-all duration-300"
-                            onclick="setConfidence(1)">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3 class="font-playfair text-xl text-charcoal">I. The
-                                    Foundational Map</h3>
-                            </div>
-                            <p class="font-inter text-sm text-charcoal/70 leading-relaxed">
-                                Build your profile using self-reported data to identify
-                                immediate risks and
-                                structural weaknesses.
-                            </p>
-                        </div>
+            <!-- Flow Chart / Timeline -->
+            <div class="relative">
+                <!-- Connecting Line (Desktop Only) -->
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-charcoal/5 z-0"></div>
 
-                        <!-- Tier 2 -->
-                        <div id="tier-2"
-                            class="tier-card group cursor-pointer p-6 rounded-2xl border border-charcoal/5 bg-white hover:border-holo-blue/30 hover:shadow-md transition-all duration-300"
-                            onclick="setConfidence(2)">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3
-                                    class="font-playfair text-xl text-charcoal/50 group-hover:text-charcoal transition-colors">
-                                    II. Verify Your Trajectory</h3>
-                            </div>
-                            <p
-                                class="font-inter text-sm text-charcoal/40 group-hover:text-charcoal/70 leading-relaxed transition-colors">
-                                Integrate real-time wearable data to gain continuous feedback
-                                and validate
-                                the velocity of your aging.
-                            </p>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
 
-                        <!-- Tier 3 -->
-                        <div id="tier-3"
-                            class="tier-card group cursor-pointer p-6 rounded-2xl border border-charcoal/5 bg-white hover:border-holo-blue/30 hover:shadow-md transition-all duration-300"
-                            onclick="setConfidence(3)">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3
-                                    class="font-playfair text-xl text-charcoal/50 group-hover:text-charcoal transition-colors">
-                                    III. Unlock Full Optimization</h3>
-                            </div>
-                            <p
-                                class="font-inter text-sm text-charcoal/40 group-hover:text-charcoal/70 leading-relaxed transition-colors">
-                                Provide clinical labs and genetics to verify models and unlock
-                                the accuracy
-                                needed for advanced protocols.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: The Meter Visualization -->
-                <div class="flex justify-center items-center relative">
-                    <!-- Glow Effect -->
+                    <!-- Node 1: Questionnaire -->
                     <div
-                        class="absolute w-[500px] h-[500px] bg-holo-blue/5 rounded-full blur-[100px] pointer-events-none">
+                        class="group relative bg-white p-8 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                        <div
+                            class="w-24 h-24 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-charcoal/10 transition-colors">
+                            <span
+                                class="font-space text-2xl font-bold text-charcoal/20 group-hover:text-charcoal transition-colors">01</span>
+                        </div>
+                        <h3 class="font-playfair text-xl text-charcoal mb-3">Questionnaire</h3>
+                        <div
+                            class="inline-block px-3 py-1 bg-charcoal text-white text-[10px] font-space tracking-widest uppercase rounded-full mb-3">
+                            Required</div>
+                        <p class="font-inter text-xs text-charcoal/50">Base Simulation</p>
                     </div>
 
-                    <div class="relative w-80 h-80 md:w-96 md:h-96">
-                        <!-- SVG Gauge -->
-                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                            <!-- Track -->
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(0,0,0,0.05)" stroke-width="6" />
-                            <!-- Progress -->
-                            <circle id="confidence-meter-fill" cx="50" cy="50" r="45" fill="none" stroke="#A0C4FF"
-                                stroke-width="6" stroke-dasharray="283" stroke-dashoffset="127" stroke-linecap="round"
-                                class="transition-all duration-1000 ease-out drop-shadow-[0_0_10px_rgba(160,196,255,0.3)]" />
-                        </svg>
+                    <!-- Node 2: Wearable Data -->
+                    <div
+                        class="group relative bg-white p-8 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                        <div
+                            class="w-24 h-24 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-holo-blue/30 transition-colors">
+                            <span
+                                class="font-space text-2xl font-bold text-charcoal/20 group-hover:text-holo-blue transition-colors">02</span>
+                        </div>
+                        <h3 class="font-playfair text-xl text-charcoal mb-3">Wearable Data</h3>
+                        <div
+                            class="inline-block px-3 py-1 bg-holo-blue/10 text-holo-blue text-[10px] font-space tracking-widest uppercase rounded-full mb-3">
+                            Recommended</div>
+                        <p class="font-inter text-xs text-charcoal/50">Enhanced Simulation</p>
+                    </div>
 
-                        <!-- Center Text -->
-                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
-                            <div id="confidence-label"
-                                class="font-space text-xs tracking-widest text-holo-blue uppercase mb-2">
-                                Status</div>
-                            <div id="confidence-status"
-                                class="font-playfair text-3xl md:text-4xl text-charcoal transition-all duration-500">
-                                Foundational</div>
+                    <!-- Node 3: Clinical Bloodwork -->
+                    <div
+                        class="group relative bg-white p-8 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                        <div
+                            class="w-24 h-24 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-holo-blue/30 transition-colors">
+                            <span
+                                class="font-space text-2xl font-bold text-charcoal/20 group-hover:text-holo-blue transition-colors">03</span>
+                        </div>
+                        <h3 class="font-playfair text-xl text-charcoal mb-3">Clinical Bloodwork</h3>
+                        <div
+                            class="inline-block px-3 py-1 bg-holo-blue/10 text-holo-blue text-[10px] font-space tracking-widest uppercase rounded-full mb-3">
+                            Recommended</div>
+                        <p class="font-inter text-xs text-charcoal/50">Unlocks Prescriptive Accuracy</p>
+                    </div>
+
+                    <!-- Node 4: DNA Sequencing (Ultimate) -->
+                    <div
+                        class="group relative bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center overflow-hidden">
+                        <!-- Gradient Border Effect -->
+                        <div
+                            class="absolute inset-0 p-[1px] rounded-3xl bg-gradient-to-br from-amber-300 via-yellow-200 to-cyan-300 opacity-50 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="absolute inset-[1px] bg-white rounded-[23px]"></div>
+
+                        <div class="relative z-10">
+                            <div class="w-24 h-24 mx-auto bg-white border-4 border-transparent rounded-full flex items-center justify-center mb-6 relative z-10"
+                                style="background-image: linear-gradient(white, white), linear-gradient(to right, #FCD34D, #67E8F9); background-origin: border-box; background-clip: content-box, border-box;">
+                                <span
+                                    class="font-space text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-cyan-400">04</span>
+                            </div>
+                            <h3 class="font-playfair text-xl text-charcoal mb-3">DNA Sequencing</h3>
+                            <div
+                                class="inline-block px-3 py-1 bg-gradient-to-r from-amber-100 to-cyan-100 text-charcoal/80 text-[10px] font-space tracking-widest uppercase rounded-full mb-3 font-bold">
+                                Ultimate</div>
+                            <p class="font-inter text-xs text-charcoal/60">Ultimate Digital Twin Accuracy</p>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </section>
-
-    <script>
-        function setConfidence(tier) {
-            const meter = document.getElementById('confidence-meter-fill');
-            const statusText = document.getElementById('confidence-status');
-            const cards = [
-                document.getElementById('tier-1'),
-                document.getElementById('tier-2'),
-                document.getElementById('tier-3')
-            ];
-
-            // Reset all cards
-            cards.forEach(card => {
-                card.className = 'tier-card group cursor-pointer p-6 rounded-2xl border border-charcoal/5 bg-white hover:border-holo-blue/30 hover:shadow-md transition-all duration-300';
-
-                const title = card.querySelector('h3');
-                const desc = card.querySelector('p');
-
-                title.className = 'font-playfair text-xl text-charcoal/50 group-hover:text-charcoal transition-colors';
-                desc.className = 'font-inter text-sm text-charcoal/40 group-hover:text-charcoal/70 leading-relaxed transition-colors';
-            });
-
-            // Activate selected card
-            const activeCard = cards[tier - 1];
-            activeCard.className = 'tier-card group cursor-pointer p-6 rounded-2xl border border-holo-blue/50 bg-holo-blue/5 shadow-[0_0_30px_rgba(160,196,255,0.1)] transition-all duration-300';
-
-            const activeTitle = activeCard.querySelector('h3');
-            const activeDesc = activeCard.querySelector('p');
-
-            activeTitle.className = 'font-playfair text-xl text-charcoal';
-            activeDesc.className = 'font-inter text-sm text-charcoal/70 leading-relaxed';
-
-            // Update Meter & Text
-            const circumference = 283;
-            let percent = 0;
-            let status = '';
-
-            if (tier === 1) { percent = 0.55; status = 'Foundational'; }
-            if (tier === 2) { percent = 0.75; status = 'Dynamic'; }
-            if (tier === 3) { percent = 0.95; status = 'Optimized'; }
-
-            const offset = circumference - (percent * circumference);
-            meter.style.strokeDashoffset = offset;
-
-            // Fade out text, change it, fade in
-            statusText.style.opacity = 0;
-            setTimeout(() => {
-                statusText.textContent = status;
-                statusText.style.opacity = 1;
-            }, 250);
-        }
-    </script>
 
     <!-- THE INTELLIGENCE PLATFORM (New Section) -->
     <section class="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
