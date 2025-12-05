@@ -675,6 +675,320 @@
         </div>
     </section>
 
+    <!-- THE SIMULATOR DEMO SECTION -->
+    <section class="py-24 md:py-32 px-6 bg-[#F5F7F9] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+
+                <!-- Left Column: Control Panel -->
+                <div class="lg:col-span-5 scroll-reveal">
+                    <div class="font-space text-xs tracking-[0.2em] text-charcoal/40 mb-6 uppercase">
+                        Simulation Engine v2.1
+                    </div>
+                    <h2 class="font-playfair text-4xl md:text-5xl text-charcoal mb-6 leading-tight">
+                        Simulate Your<br>Biological Trajectory.
+                    </h2>
+                    <p class="font-inter text-charcoal/60 text-lg mb-12 leading-relaxed">
+                        Don't guess. We test clinical interventions on your Digital Twin to measure the impact on the
+                        five core pillars of aging.
+                    </p>
+
+                    <!-- Control Panel Card -->
+                    <div
+                        class="bg-white rounded-3xl p-8 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.05)] border border-charcoal/5">
+                        <!-- Protocol Toggle -->
+                        <div class="mb-10">
+                            <div class="flex justify-between items-center mb-4">
+                                <label
+                                    class="font-space text-xs tracking-wider text-charcoal uppercase font-bold">Protocol
+                                    Selection</label>
+                                <span id="protocol-status"
+                                    class="font-space text-[10px] text-charcoal/40 uppercase">Inactive</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-4 bg-[#F5F7F9] rounded-xl border border-charcoal/5">
+                                <span class="font-playfair text-xl text-charcoal">GLP-1 Agonist</span>
+                                <button id="glp1-toggle"
+                                    class="w-14 h-8 rounded-full bg-charcoal/10 relative transition-colors duration-300 focus:outline-none">
+                                    <div
+                                        class="w-6 h-6 bg-white rounded-full shadow-md absolute top-1 left-1 transition-transform duration-300">
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Mitigation Slider -->
+                        <div class="opacity-50 pointer-events-none transition-opacity duration-300"
+                            id="mitigation-controls">
+                            <div class="flex justify-between items-center mb-4">
+                                <label
+                                    class="font-space text-xs tracking-wider text-charcoal uppercase font-bold">Mitigation
+                                    Strategy</label>
+                                <span class="font-space text-[10px] text-charcoal/40 uppercase">Protein +
+                                    Resistance</span>
+                            </div>
+                            <div class="relative h-12 flex items-center">
+                                <input type="range" id="protein-slider" min="0" max="100" value="0"
+                                    class="w-full h-2 bg-charcoal/10 rounded-lg appearance-none cursor-pointer accent-holo-blue">
+                            </div>
+                            <div class="flex justify-between font-space text-[10px] text-charcoal/40 mt-2">
+                                <span>Standard Diet</span>
+                                <span>High Protein + Heavy Lift</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Digital Twin Output -->
+                <div class="lg:col-span-7 scroll-reveal delay-200">
+                    <div
+                        class="relative bg-charcoal rounded-[2.5rem] p-8 md:p-12 overflow-hidden text-white shadow-2xl">
+                        <!-- Background Grid -->
+                        <div class="absolute inset-0 opacity-10"
+                            style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;">
+                        </div>
+
+                        <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                            <!-- Visual: Torso/Muscle Map Representation -->
+                            <div class="relative h-[400px] flex items-center justify-center">
+                                <!-- Torso Outline (SVG) -->
+                                <svg viewBox="0 0 200 400"
+                                    class="h-full w-auto drop-shadow-[0_0_15px_rgba(160,196,255,0.3)]">
+                                    <path d="M50,80 Q100,90 150,80 L160,150 Q170,250 160,350 L40,350 Q30,250 40,150 Z"
+                                        fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+
+                                    <!-- Fat Layer (Outer) -->
+                                    <path id="fat-layer" d="M45,150 Q35,250 45,350 L155,350 Q165,250 155,150 Z"
+                                        fill="rgba(255,255,255,0.05)" stroke="none"
+                                        class="transition-all duration-1000" />
+
+                                    <!-- Muscle Layer (Inner) -->
+                                    <path id="muscle-layer" d="M60,160 Q55,250 60,340 L140,340 Q145,250 140,160 Z"
+                                        fill="rgba(255,255,255,0.1)" stroke="none"
+                                        class="transition-all duration-1000" />
+
+                                    <!-- Core Glow -->
+                                    <circle cx="100" cy="200" r="20" fill="#A0C4FF" filter="url(#glow)" opacity="0.5"
+                                        class="animate-pulse" />
+
+                                    <defs>
+                                        <filter id="glow">
+                                            <feGaussianBlur stdDeviation="10" result="coloredBlur" />
+                                            <feMerge>
+                                                <feMergeNode in="coloredBlur" />
+                                                <feMergeNode in="SourceGraphic" />
+                                            </feMerge>
+                                        </filter>
+                                    </defs>
+                                </svg>
+
+                                <!-- Floating Labels -->
+                                <div
+                                    class="absolute top-1/4 left-0 font-space text-[10px] text-holo-blue tracking-wider bg-charcoal/80 px-2 py-1 rounded border border-holo-blue/30 backdrop-blur-sm">
+                                    ADIPOSE TISSUE
+                                </div>
+                                <div
+                                    class="absolute bottom-1/3 right-0 font-space text-[10px] text-white/60 tracking-wider bg-charcoal/80 px-2 py-1 rounded border border-white/10 backdrop-blur-sm">
+                                    LEAN MASS
+                                </div>
+                            </div>
+
+                            <!-- Metrics Grid -->
+                            <div class="space-y-6">
+                                <div
+                                    class="font-space text-xs tracking-[0.2em] text-white/40 uppercase mb-8 border-b border-white/10 pb-4">
+                                    Live Telemetry
+                                </div>
+
+                                <!-- Metric 1: Structural Integrity -->
+                                <div class="group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <span class="font-inter text-sm text-white/80">Structural Integrity</span>
+                                        <span id="metric-structural"
+                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
+                                    </div>
+                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                        <div id="bar-structural"
+                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Metric 2: Mitochondrial Efficiency -->
+                                <div class="group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <span class="font-inter text-sm text-white/80">Mitochondrial Eff.</span>
+                                        <span id="metric-mitochondrial"
+                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
+                                    </div>
+                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                        <div id="bar-mitochondrial"
+                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Metric 3: Cellular Senescence -->
+                                <div class="group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <span class="font-inter text-sm text-white/80">Cellular Senescence</span>
+                                        <span id="metric-senescence"
+                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
+                                    </div>
+                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                        <div id="bar-senescence"
+                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Metric 4: Hormonal Balance -->
+                                <div class="group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <span class="font-inter text-sm text-white/80">Hormonal Balance</span>
+                                        <span id="metric-hormonal"
+                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
+                                    </div>
+                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                        <div id="bar-hormonal"
+                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Metric 5: Systemic Resilience -->
+                                <div class="group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <span class="font-inter text-sm text-white/80">Systemic Resilience</span>
+                                        <span id="metric-resilience"
+                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
+                                    </div>
+                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                        <div id="bar-resilience"
+                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simulation Logic
+        const glp1Toggle = document.getElementById('glp1-toggle');
+        const protocolStatus = document.getElementById('protocol-status');
+        const mitigationControls = document.getElementById('mitigation-controls');
+        const proteinSlider = document.getElementById('protein-slider');
+
+        // Visual Elements
+        const fatLayer = document.getElementById('fat-layer');
+        const muscleLayer = document.getElementById('muscle-layer');
+
+        // Metrics
+        const metrics = {
+            structural: { el: document.getElementById('metric-structural'), bar: document.getElementById('bar-structural') },
+            mitochondrial: { el: document.getElementById('metric-mitochondrial'), bar: document.getElementById('bar-mitochondrial') },
+            senescence: { el: document.getElementById('metric-senescence'), bar: document.getElementById('bar-senescence') },
+            hormonal: { el: document.getElementById('metric-hormonal'), bar: document.getElementById('bar-hormonal') },
+            resilience: { el: document.getElementById('metric-resilience'), bar: document.getElementById('bar-resilience') }
+        };
+
+        let isSimulationActive = false;
+
+        glp1Toggle.addEventListener('click', () => {
+            isSimulationActive = !isSimulationActive;
+
+            // Toggle UI
+            const toggleKnob = glp1Toggle.querySelector('div');
+            if (isSimulationActive) {
+                glp1Toggle.classList.replace('bg-charcoal/10', 'bg-holo-blue');
+                toggleKnob.classList.add('translate-x-6');
+                protocolStatus.textContent = 'Active: GLP-1';
+                protocolStatus.classList.replace('text-charcoal/40', 'text-holo-blue');
+                mitigationControls.classList.remove('opacity-50', 'pointer-events-none');
+
+                // Activate Simulation Defaults (Without Mitigation)
+                updateSimulation(0);
+            } else {
+                glp1Toggle.classList.replace('bg-holo-blue', 'bg-charcoal/10');
+                toggleKnob.classList.remove('translate-x-6');
+                protocolStatus.textContent = 'Inactive';
+                protocolStatus.classList.replace('text-holo-blue', 'text-charcoal/40');
+                mitigationControls.classList.add('opacity-50', 'pointer-events-none');
+                proteinSlider.value = 0;
+
+                // Reset Simulation
+                resetSimulation();
+            }
+        });
+
+        proteinSlider.addEventListener('input', (e) => {
+            if (isSimulationActive) {
+                updateSimulation(e.target.value);
+            }
+        });
+
+        function updateSimulation(mitigationValue) {
+            // Calculate values based on mitigation (0-100)
+            // Structural: Starts at -8% (Amber), goes to +2% (Blue)
+            const structuralVal = -8 + (mitigationValue / 10);
+            const structuralColor = structuralVal < 0 ? 'text-amber-400' : 'text-holo-blue';
+            const structuralBarColor = structuralVal < 0 ? 'bg-amber-400' : 'bg-holo-blue';
+
+            updateMetric(metrics.structural, structuralVal.toFixed(1) + '%', structuralColor, structuralBarColor, 60 + structuralVal); // Arbitrary bar width base
+
+            // Mitochondrial: +15% (Blue) - Static for this demo
+            updateMetric(metrics.mitochondrial, '+15.0%', 'text-holo-blue', 'bg-holo-blue', 80);
+
+            // Senescence: -10% (Blue) - Static
+            updateMetric(metrics.senescence, '-10.0%', 'text-holo-blue', 'bg-holo-blue', 75);
+
+            // Hormonal: Starts -5%, goes to +5%
+            const hormonalVal = -5 + (mitigationValue / 10);
+            const hormonalColor = hormonalVal < 0 ? 'text-amber-400' : 'text-holo-blue';
+            const hormonalBarColor = hormonalVal < 0 ? 'bg-amber-400' : 'bg-holo-blue';
+            updateMetric(metrics.hormonal, (hormonalVal > 0 ? '+' : '') + hormonalVal.toFixed(1) + '%', hormonalColor, hormonalBarColor, 50 + hormonalVal);
+
+            // Resilience: Static +5%
+            updateMetric(metrics.resilience, '+5.0%', 'text-holo-blue', 'bg-holo-blue', 65);
+
+            // Update Visuals
+            // Fat Layer: Shrinks (Blue glow)
+            fatLayer.setAttribute('fill', 'rgba(160, 196, 255, 0.2)'); // Blue tint
+            fatLayer.setAttribute('transform', 'scale(0.9) translate(10, 20)'); // Shrink effect
+
+            // Muscle Layer: Amber if mitigation low, Blue if high
+            if (mitigationValue < 50) {
+                muscleLayer.setAttribute('fill', 'rgba(251, 191, 36, 0.3)'); // Amber tint (Warning)
+                muscleLayer.setAttribute('transform', 'scale(0.95) translate(5, 10)'); // Slight atrophy
+            } else {
+                muscleLayer.setAttribute('fill', 'rgba(160, 196, 255, 0.3)'); // Blue tint (Healthy)
+                muscleLayer.setAttribute('transform', 'scale(1.05) translate(-5, -10)'); // Hypertrophy
+            }
+        }
+
+        function resetSimulation() {
+            Object.values(metrics).forEach(m => {
+                m.el.textContent = '--';
+                m.el.className = 'font-space text-sm text-white/40 transition-colors duration-500';
+                m.bar.style.width = '0%';
+                m.bar.className = 'h-full bg-white/40 w-0 transition-all duration-700';
+            });
+
+            // Reset Visuals
+            fatLayer.setAttribute('fill', 'rgba(255,255,255,0.05)');
+            fatLayer.setAttribute('transform', '');
+            muscleLayer.setAttribute('fill', 'rgba(255,255,255,0.1)');
+            muscleLayer.setAttribute('transform', '');
+        }
+
+        function updateMetric(metric, text, textColorClass, barColorClass, barWidth) {
+            metric.el.textContent = text;
+            metric.el.className = `font-space text-sm ${textColorClass} transition-colors duration-500`;
+            metric.bar.className = `h-full ${barColorClass} transition-all duration-700`;
+            metric.bar.style.width = `${barWidth}%`;
+        }
+    </script>
+
     <!-- THE INTELLIGENCE PLATFORM (New Section) -->
     <section class="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
         <!-- Subtle Background Gradient -->
