@@ -802,94 +802,59 @@
     </section>
 
     <!-- TRUST & SAFETY SECTION -->
-    <section class="py-24 md:py-32 px-6 bg-[#F5F7F9] relative overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
+    <section class="py-24 md:py-32 px-6 bg-[#F5F7F9] relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-24">
 
-            <!-- Header -->
-            <div class="text-center mb-20 max-w-3xl mx-auto">
-                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-charcoal mb-6 leading-tight">
-                    Predictive Health.<br>Zero Risk.
-                </h2>
-                <p class="font-inter text-charcoal/60 text-lg leading-relaxed">
-                    We put three layers of protection between your Digital Twin and reality, ensuring every protocol is
-                    safe, validated, and optimized for your unique biology.
-                </p>
-            </div>
-
-            <!-- Trust Grid -->
-            <div class="grid md:grid-cols-3 gap-8 mb-20">
-
-                <!-- Pillar 1: Clinical Oversight -->
-                <div
-                    class="bg-white p-8 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-lg transition-all duration-300 text-center group">
-                    <div
-                        class="w-16 h-16 mx-auto bg-[#F5F7F9] rounded-full flex items-center justify-center mb-6 group-hover:bg-holo-blue/10 transition-colors">
-                        <!-- Stethoscope Icon -->
-                        <svg class="w-8 h-8 text-charcoal/80 group-hover:text-holo-blue transition-colors"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
-                            <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />
-                            <circle cx="20" cy="10" r="2" />
-                        </svg>
-                    </div>
-                    <h3 class="font-playfair text-2xl text-charcoal mb-4">Clinical Oversight</h3>
-                    <p class="font-inter text-charcoal/60 text-sm leading-relaxed">
-                        <span class="font-bold text-charcoal">Physician Verified.</span> Every protocol is reviewed and
-                        signed by a licensed M.D.
+                <!-- Left Sticky Column -->
+                <div class="scroll-reveal md:sticky md:top-32 h-fit">
+                    <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-charcoal mb-6 md:mb-8 leading-tight">
+                        Predictive Health.<br>Zero Risk.
+                    </h2>
+                    <p class="font-inter text-lg text-charcoal/60 leading-relaxed mb-12">
+                        We put three layers of protection between your Digital Twin and reality, ensuring every protocol
+                        is safe, validated, and optimized for your unique biology.
                     </p>
+                    <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+                        class="px-8 py-4 rounded-full bg-charcoal hover:bg-black text-white font-inter font-medium tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Build My Digital Twin
+                    </button>
                 </div>
 
-                <!-- Pillar 2: Simulation Guardrail -->
-                <div
-                    class="bg-white p-8 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-lg transition-all duration-300 text-center group">
-                    <div
-                        class="w-16 h-16 mx-auto bg-[#F5F7F9] rounded-full flex items-center justify-center mb-6 group-hover:bg-holo-blue/10 transition-colors">
-                        <!-- Shield Icon -->
-                        <svg class="w-8 h-8 text-charcoal/80 group-hover:text-holo-blue transition-colors"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg>
+                <!-- Right Scrolling Content -->
+                <div class="space-y-24 pt-12 md:pt-0">
+
+                    <!-- Item 1: Clinical Oversight -->
+                    <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
+                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-charcoal"></div>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Clinical Oversight</h3>
+                        <p class="font-inter text-charcoal/60 leading-relaxed">
+                            <span class="font-bold text-charcoal">Physician Verified.</span> Every protocol is reviewed
+                            and signed by a licensed M.D.
+                        </p>
                     </div>
-                    <h3 class="font-playfair text-2xl text-charcoal mb-4">Simulation Guardrail</h3>
-                    <p class="font-inter text-charcoal/60 text-sm leading-relaxed">
-                        <span class="font-bold text-charcoal">Zero-Risk Testing.</span> We run 10,000+ scenarios on your
-                        Twin to absorb all potential side effects.
-                    </p>
-                </div>
 
-                <!-- Pillar 3: Data Sovereignty -->
-                <div
-                    class="bg-white p-8 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-lg transition-all duration-300 text-center group">
-                    <div
-                        class="w-16 h-16 mx-auto bg-[#F5F7F9] rounded-full flex items-center justify-center mb-6 group-hover:bg-holo-blue/10 transition-colors">
-                        <!-- Lock Icon -->
-                        <svg class="w-8 h-8 text-charcoal/80 group-hover:text-holo-blue transition-colors"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                        </svg>
+                    <!-- Item 2: Risk Testing -->
+                    <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
+                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-holo-blue"></div>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Risk Testing</h3>
+                        <p class="font-inter text-charcoal/60 leading-relaxed">
+                            We run 10,000+ scenarios on your Twin to absorb all potential side effects.
+                        </p>
                     </div>
-                    <h3 class="font-playfair text-2xl text-charcoal mb-4">Data Sovereignty</h3>
-                    <p class="font-inter text-charcoal/60 text-sm leading-relaxed">
-                        <span class="font-bold text-charcoal">Your Data is a Vault.</span> Information is never sold to
-                        third parties or insurance.
-                    </p>
+
+                    <!-- Item 3: Data Sovereignty -->
+                    <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
+                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-charcoal"></div>
+                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Data Sovereignty</h3>
+                        <p class="font-inter text-charcoal/60 leading-relaxed">
+                            <span class="font-bold text-charcoal">Your Data is a Vault.</span> Information is never sold
+                            to third parties or insurance.
+                        </p>
+                    </div>
+
                 </div>
-
             </div>
-
-            <!-- Final CTA -->
-            <div class="text-center">
-                <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-                    class="px-12 py-6 rounded-full bg-charcoal hover:bg-black text-white font-inter font-medium tracking-wide text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
-                    Build My Digital Twin
-                </button>
-            </div>
-
         </div>
     </section>
 
