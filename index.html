@@ -671,579 +671,277 @@
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
 
-    <!-- THE SIMULATOR DEMO SECTION -->
-    <section class="py-24 md:py-32 px-6 bg-[#F5F7F9] relative overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+                <!-- THE INTELLIGENCE PLATFORM (New Section) -->
+                <section class="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
+                    <!-- Subtle Background Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-[#F5F7F9] to-white pointer-events-none"></div>
 
-                <!-- Left Column: Control Panel -->
-                <div class="lg:col-span-5 scroll-reveal">
-                    <div class="font-space text-xs tracking-[0.2em] text-charcoal/40 mb-6 uppercase">
-                        Simulation Engine v2.1
-                    </div>
-                    <h2 class="font-playfair text-4xl md:text-5xl text-charcoal mb-6 leading-tight">
-                        Simulate Your<br>Biological Trajectory.
-                    </h2>
-                    <p class="font-inter text-charcoal/60 text-lg mb-12 leading-relaxed">
-                        Don't guess. We test clinical interventions on your Digital Twin to measure the impact on the
-                        five core pillars of aging.
-                    </p>
-
-                    <!-- Control Panel Card -->
+                    <!-- Background Orb/Glow for Ethereal feel -->
                     <div
-                        class="bg-white rounded-3xl p-8 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.05)] border border-charcoal/5">
-                        <!-- Protocol Toggle -->
-                        <div class="mb-10">
-                            <div class="flex justify-between items-center mb-4">
-                                <label
-                                    class="font-space text-xs tracking-wider text-charcoal uppercase font-bold">Protocol
-                                    Selection</label>
-                                <span id="protocol-status"
-                                    class="font-space text-[10px] text-charcoal/40 uppercase">Inactive</span>
-                            </div>
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-holo-blue/5 rounded-full blur-[100px] pointer-events-none">
+                    </div>
+
+                    <div class="max-w-7xl mx-auto relative z-10">
+                        <div class="scroll-reveal mb-20 text-center">
+                            <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-charcoal mb-6">
+                                The Intelligence Platform.
+                            </h2>
+                            <p class="font-inter text-charcoal/60 text-lg max-w-2xl mx-auto">
+                                Luma is the software layer that ingests your existing data to help you make better
+                                decisions.
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <!-- Card 1: Universal Ingestion -->
                             <div
-                                class="flex items-center justify-between p-4 bg-[#F5F7F9] rounded-xl border border-charcoal/5">
-                                <span class="font-playfair text-xl text-charcoal">GLP-1 Agonist</span>
-                                <button id="glp1-toggle"
-                                    class="w-14 h-8 rounded-full bg-charcoal/10 relative transition-colors duration-300 focus:outline-none">
-                                    <div
-                                        class="w-6 h-6 bg-white rounded-full shadow-md absolute top-1 left-1 transition-transform duration-300">
-                                    </div>
-                                </button>
+                                class="group bg-white/60 backdrop-blur-md border border-charcoal/5 p-8 rounded-3xl hover:shadow-xl hover:shadow-holo-blue/5 transition-all duration-500 hover:-translate-y-1">
+                                <div class="h-16 mb-8 flex items-center text-charcoal/80">
+                                    <!-- Visual: File -> Twin -->
+                                    <svg class="w-10 h-10 stroke-1" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                    </svg>
+                                    <svg class="w-6 h-6 mx-4 text-charcoal/20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M5 12h14" />
+                                        <path d="m12 5 7 7-7 7" />
+                                    </svg>
+                                    <svg class="w-10 h-10 stroke-1" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="8" r="5" />
+                                        <path d="M20 21a8 8 0 0 0-16 0" />
+                                    </svg>
+                                </div>
+                                <h3 class="font-playfair text-2xl text-charcoal mb-4">Bring Your Own Data.</h3>
+                                <p class="font-inter text-charcoal/60 text-sm leading-relaxed">
+                                    You don't need new labs to start. We ingest PDFs from Quest/LabCorp, raw DNA files
+                                    from 23andMe,
+                                    and historical wearable data to build your baseline immediately.
+                                </p>
                             </div>
-                        </div>
 
-                        <!-- Mitigation Slider -->
-                        <div class="opacity-50 pointer-events-none transition-opacity duration-300"
-                            id="mitigation-controls">
-                            <div class="flex justify-between items-center mb-4">
-                                <label
-                                    class="font-space text-xs tracking-wider text-charcoal uppercase font-bold">Mitigation
-                                    Strategy</label>
-                                <span class="font-space text-[10px] text-charcoal/40 uppercase">Protein +
-                                    Resistance</span>
+                            <!-- Card 2: The Validation Engine -->
+                            <div
+                                class="group bg-white/60 backdrop-blur-md border border-charcoal/5 p-8 rounded-3xl hover:shadow-xl hover:shadow-holo-blue/5 transition-all duration-500 hover:-translate-y-1">
+                                <div class="h-16 mb-8 flex items-center text-charcoal/80">
+                                    <!-- Visual: Shield Check -->
+                                    <div class="relative">
+                                        <svg class="w-12 h-12 stroke-1" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-holo-blue stroke-2"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h3 class="font-playfair text-2xl text-charcoal mb-4">Audit Your Care.</h3>
+                                <p class="font-inter text-charcoal/60 text-sm leading-relaxed">
+                                    Your doctor prescribed a statin? An influencer suggested Carnivore? Run the
+                                    simulation on your
+                                    Twin first. See the 10-year impact before you commit.
+                                </p>
                             </div>
-                            <div class="relative h-12 flex items-center">
-                                <input type="range" id="protein-slider" min="0" max="100" value="0"
-                                    class="w-full h-2 bg-charcoal/10 rounded-lg appearance-none cursor-pointer accent-holo-blue">
-                            </div>
-                            <div class="flex justify-between font-space text-[10px] text-charcoal/40 mt-2">
-                                <span>Standard Diet</span>
-                                <span>High Protein + Heavy Lift</span>
+
+                            <!-- Card 3: Dynamic Optimization -->
+                            <div
+                                class="group bg-white/60 backdrop-blur-md border border-charcoal/5 p-8 rounded-3xl hover:shadow-xl hover:shadow-holo-blue/5 transition-all duration-500 hover:-translate-y-1">
+                                <div class="h-16 mb-8 flex items-center text-charcoal/80">
+                                    <!-- Visual: Refresh/Cycle -->
+                                    <svg class="w-12 h-12 stroke-1 group-hover:rotate-180 transition-transform duration-700"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                        <path d="M3 3v5h5" />
+                                        <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+                                        <path d="M16 21h5v-5" />
+                                    </svg>
+                                </div>
+                                <h3 class="font-playfair text-2xl text-charcoal mb-4">Agile Protocols.</h3>
+                                <p class="font-inter text-charcoal/60 text-sm leading-relaxed">
+                                    Health isn't static. As your data changes, your protocol adapts. We recommend the
+                                    optimal mix of
+                                    diet, drugs, and peptides to keep your biological age continuously suppressed.
+                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Right Column: Digital Twin Output -->
-                <div class="lg:col-span-7 scroll-reveal delay-200">
-                    <div
-                        class="relative bg-charcoal rounded-[2.5rem] p-8 md:p-12 overflow-hidden text-white shadow-2xl">
-                        <!-- Background Grid -->
-                        <div class="absolute inset-0 opacity-10"
-                            style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;">
-                        </div>
+                <!-- THE SIMULATION LOGIC - Technical Diagram -->
+                <section class="py-24 md:py-32 px-6 bg-white relative">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="grid md:grid-cols-2 gap-12 md:gap-24">
+                            <div class="scroll-reveal md:sticky md:top-32 h-fit relative">
+                                <!-- DNA Helix Removed -->
 
-                        <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                            <!-- Visual: Torso/Muscle Map Representation -->
-                            <div class="relative h-[400px] flex items-center justify-center">
-                                <!-- Torso Outline (SVG) -->
-                                <svg viewBox="0 0 200 400"
-                                    class="h-full w-auto drop-shadow-[0_0_15px_rgba(160,196,255,0.3)]">
-                                    <path d="M50,80 Q100,90 150,80 L160,150 Q170,250 160,350 L40,350 Q30,250 40,150 Z"
-                                        fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
-
-                                    <!-- Fat Layer (Outer) -->
-                                    <path id="fat-layer" d="M45,150 Q35,250 45,350 L155,350 Q165,250 155,150 Z"
-                                        fill="rgba(255,255,255,0.05)" stroke="none"
-                                        class="transition-all duration-1000" />
-
-                                    <!-- Muscle Layer (Inner) -->
-                                    <path id="muscle-layer" d="M60,160 Q55,250 60,340 L140,340 Q145,250 140,160 Z"
-                                        fill="rgba(255,255,255,0.1)" stroke="none"
-                                        class="transition-all duration-1000" />
-
-                                    <!-- Core Glow -->
-                                    <circle cx="100" cy="200" r="20" fill="#A0C4FF" filter="url(#glow)" opacity="0.5"
-                                        class="animate-pulse" />
-
-                                    <defs>
-                                        <filter id="glow">
-                                            <feGaussianBlur stdDeviation="10" result="coloredBlur" />
-                                            <feMerge>
-                                                <feMergeNode in="coloredBlur" />
-                                                <feMergeNode in="SourceGraphic" />
-                                            </feMerge>
-                                        </filter>
-                                    </defs>
-                                </svg>
-
-                                <!-- Floating Labels -->
-                                <div
-                                    class="absolute top-1/4 left-0 font-space text-[10px] text-holo-blue tracking-wider bg-charcoal/80 px-2 py-1 rounded border border-holo-blue/30 backdrop-blur-sm">
-                                    ADIPOSE TISSUE
-                                </div>
-                                <div
-                                    class="absolute bottom-1/3 right-0 font-space text-[10px] text-white/60 tracking-wider bg-charcoal/80 px-2 py-1 rounded border border-white/10 backdrop-blur-sm">
-                                    LEAN MASS
-                                </div>
+                                <h2
+                                    class="font-playfair text-4xl md:text-5xl lg:text-6xl text-charcoal mb-6 md:mb-8 leading-tight">
+                                    We test on your Twin,<br>
+                                    <span class="text-charcoal/30">not on you.</span>
+                                </h2>
+                                <p class="font-inter text-lg text-charcoal/60 leading-relaxed mb-12">
+                                    Stop guessing with supplements. We simulate how your body reacts
+                                    to peptides and protocols before you take a single dose.
+                                </p>
+                                <a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+                                    class="inline-flex items-center gap-3 font-space text-xs tracking-[0.2em] text-charcoal uppercase border-b border-charcoal pb-1 hover:opacity-60 transition-opacity">
+                                    Start Simulation
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
                             </div>
 
-                            <!-- Metrics Grid -->
-                            <div class="space-y-6">
-                                <div
-                                    class="font-space text-xs tracking-[0.2em] text-white/40 uppercase mb-8 border-b border-white/10 pb-4">
-                                    Live Telemetry
+                            <div class="space-y-24 pt-12 md:pt-0">
+                                <!-- Step 1 -->
+                                <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
+                                    <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-charcoal">
+                                    </div>
+                                    <div class="font-space text-xs tracking-[0.2em] text-charcoal/40 mb-4 uppercase">
+                                        Phase 01</div>
+                                    <h3 class="font-playfair text-3xl text-charcoal mb-4">Biometric Mapping</h3>
+                                    <p class="font-inter text-charcoal/60 leading-relaxed">
+                                        We aggregate your blood panels, wearable metrics, and DNA into a
+                                        high-fidelity biological profile.
+                                    </p>
                                 </div>
 
-                                <!-- Metric 1: Structural Integrity -->
-                                <div class="group">
-                                    <div class="flex justify-between items-end mb-2">
-                                        <span class="font-inter text-sm text-white/80">Structural Integrity</span>
-                                        <span id="metric-structural"
-                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
+                                <!-- Step 2 -->
+                                <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
+                                    <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-holo-blue">
                                     </div>
-                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                                        <div id="bar-structural"
-                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
-                                    </div>
+                                    <div class="font-space text-xs tracking-[0.2em] text-holo-blue mb-4 uppercase">Phase
+                                        02</div>
+                                    <h3 class="font-playfair text-3xl text-charcoal mb-4">The Probability Engine</h3>
+                                    <p class="font-inter text-charcoal/60 leading-relaxed">
+                                        We run 10,000+ scenarios against your model to predict how your body
+                                        reacts to specific peptides.
+                                    </p>
                                 </div>
 
-                                <!-- Metric 2: Mitochondrial Efficiency -->
-                                <div class="group">
-                                    <div class="flex justify-between items-end mb-2">
-                                        <span class="font-inter text-sm text-white/80">Mitochondrial Eff.</span>
-                                        <span id="metric-mitochondrial"
-                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
+                                <!-- Step 3 -->
+                                <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
+                                    <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-charcoal">
                                     </div>
-                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                                        <div id="bar-mitochondrial"
-                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
-                                    </div>
-                                </div>
-
-                                <!-- Metric 3: Cellular Senescence -->
-                                <div class="group">
-                                    <div class="flex justify-between items-end mb-2">
-                                        <span class="font-inter text-sm text-white/80">Cellular Senescence</span>
-                                        <span id="metric-senescence"
-                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
-                                    </div>
-                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                                        <div id="bar-senescence"
-                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
-                                    </div>
-                                </div>
-
-                                <!-- Metric 4: Hormonal Balance -->
-                                <div class="group">
-                                    <div class="flex justify-between items-end mb-2">
-                                        <span class="font-inter text-sm text-white/80">Hormonal Balance</span>
-                                        <span id="metric-hormonal"
-                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
-                                    </div>
-                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                                        <div id="bar-hormonal"
-                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
-                                    </div>
-                                </div>
-
-                                <!-- Metric 5: Systemic Resilience -->
-                                <div class="group">
-                                    <div class="flex justify-between items-end mb-2">
-                                        <span class="font-inter text-sm text-white/80">Systemic Resilience</span>
-                                        <span id="metric-resilience"
-                                            class="font-space text-sm text-white/40 transition-colors duration-500">--</span>
-                                    </div>
-                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                                        <div id="bar-resilience"
-                                            class="h-full bg-white/40 w-0 transition-all duration-700"></div>
-                                    </div>
+                                    <div class="font-space text-xs tracking-[0.2em] text-charcoal/40 mb-4 uppercase">
+                                        Phase 03</div>
+                                    <h3 class="font-playfair text-3xl text-charcoal mb-4">Precision Deployment</h3>
+                                    <p class="font-inter text-charcoal/60 leading-relaxed">
+                                        You receive the single highest-probability protocol, verified by physicians
+                                        for your unique biology.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </section>
 
-    <script>
-        // Simulation Logic
-        const glp1Toggle = document.getElementById('glp1-toggle');
-        const protocolStatus = document.getElementById('protocol-status');
-        const mitigationControls = document.getElementById('mitigation-controls');
-        const proteinSlider = document.getElementById('protein-slider');
-
-        // Visual Elements
-        const fatLayer = document.getElementById('fat-layer');
-        const muscleLayer = document.getElementById('muscle-layer');
-
-        // Metrics
-        const metrics = {
-            structural: { el: document.getElementById('metric-structural'), bar: document.getElementById('bar-structural') },
-            mitochondrial: { el: document.getElementById('metric-mitochondrial'), bar: document.getElementById('bar-mitochondrial') },
-            senescence: { el: document.getElementById('metric-senescence'), bar: document.getElementById('bar-senescence') },
-            hormonal: { el: document.getElementById('metric-hormonal'), bar: document.getElementById('bar-hormonal') },
-            resilience: { el: document.getElementById('metric-resilience'), bar: document.getElementById('bar-resilience') }
-        };
-
-        let isSimulationActive = false;
-
-        glp1Toggle.addEventListener('click', () => {
-            isSimulationActive = !isSimulationActive;
-
-            // Toggle UI
-            const toggleKnob = glp1Toggle.querySelector('div');
-            if (isSimulationActive) {
-                glp1Toggle.classList.replace('bg-charcoal/10', 'bg-holo-blue');
-                toggleKnob.classList.add('translate-x-6');
-                protocolStatus.textContent = 'Active: GLP-1';
-                protocolStatus.classList.replace('text-charcoal/40', 'text-holo-blue');
-                mitigationControls.classList.remove('opacity-50', 'pointer-events-none');
-
-                // Activate Simulation Defaults (Without Mitigation)
-                updateSimulation(0);
-            } else {
-                glp1Toggle.classList.replace('bg-holo-blue', 'bg-charcoal/10');
-                toggleKnob.classList.remove('translate-x-6');
-                protocolStatus.textContent = 'Inactive';
-                protocolStatus.classList.replace('text-holo-blue', 'text-charcoal/40');
-                mitigationControls.classList.add('opacity-50', 'pointer-events-none');
-                proteinSlider.value = 0;
-
-                // Reset Simulation
-                resetSimulation();
-            }
-        });
-
-        proteinSlider.addEventListener('input', (e) => {
-            if (isSimulationActive) {
-                updateSimulation(e.target.value);
-            }
-        });
-
-        function updateSimulation(mitigationValue) {
-            // Calculate values based on mitigation (0-100)
-            // Structural: Starts at -8% (Amber), goes to +2% (Blue)
-            const structuralVal = -8 + (mitigationValue / 10);
-            const structuralColor = structuralVal < 0 ? 'text-amber-400' : 'text-holo-blue';
-            const structuralBarColor = structuralVal < 0 ? 'bg-amber-400' : 'bg-holo-blue';
-
-            updateMetric(metrics.structural, structuralVal.toFixed(1) + '%', structuralColor, structuralBarColor, 60 + structuralVal); // Arbitrary bar width base
-
-            // Mitochondrial: +15% (Blue) - Static for this demo
-            updateMetric(metrics.mitochondrial, '+15.0%', 'text-holo-blue', 'bg-holo-blue', 80);
-
-            // Senescence: -10% (Blue) - Static
-            updateMetric(metrics.senescence, '-10.0%', 'text-holo-blue', 'bg-holo-blue', 75);
-
-            // Hormonal: Starts -5%, goes to +5%
-            const hormonalVal = -5 + (mitigationValue / 10);
-            const hormonalColor = hormonalVal < 0 ? 'text-amber-400' : 'text-holo-blue';
-            const hormonalBarColor = hormonalVal < 0 ? 'bg-amber-400' : 'bg-holo-blue';
-            updateMetric(metrics.hormonal, (hormonalVal > 0 ? '+' : '') + hormonalVal.toFixed(1) + '%', hormonalColor, hormonalBarColor, 50 + hormonalVal);
-
-            // Resilience: Static +5%
-            updateMetric(metrics.resilience, '+5.0%', 'text-holo-blue', 'bg-holo-blue', 65);
-
-            // Update Visuals
-            // Fat Layer: Shrinks (Blue glow)
-            fatLayer.setAttribute('fill', 'rgba(160, 196, 255, 0.2)'); // Blue tint
-            fatLayer.setAttribute('transform', 'scale(0.9) translate(10, 20)'); // Shrink effect
-
-            // Muscle Layer: Amber if mitigation low, Blue if high
-            if (mitigationValue < 50) {
-                muscleLayer.setAttribute('fill', 'rgba(251, 191, 36, 0.3)'); // Amber tint (Warning)
-                muscleLayer.setAttribute('transform', 'scale(0.95) translate(5, 10)'); // Slight atrophy
-            } else {
-                muscleLayer.setAttribute('fill', 'rgba(160, 196, 255, 0.3)'); // Blue tint (Healthy)
-                muscleLayer.setAttribute('transform', 'scale(1.05) translate(-5, -10)'); // Hypertrophy
-            }
-        }
-
-        function resetSimulation() {
-            Object.values(metrics).forEach(m => {
-                m.el.textContent = '--';
-                m.el.className = 'font-space text-sm text-white/40 transition-colors duration-500';
-                m.bar.style.width = '0%';
-                m.bar.className = 'h-full bg-white/40 w-0 transition-all duration-700';
-            });
-
-            // Reset Visuals
-            fatLayer.setAttribute('fill', 'rgba(255,255,255,0.05)');
-            fatLayer.setAttribute('transform', '');
-            muscleLayer.setAttribute('fill', 'rgba(255,255,255,0.1)');
-            muscleLayer.setAttribute('transform', '');
-        }
-
-        function updateMetric(metric, text, textColorClass, barColorClass, barWidth) {
-            metric.el.textContent = text;
-            metric.el.className = `font-space text-sm ${textColorClass} transition-colors duration-500`;
-            metric.bar.className = `h-full ${barColorClass} transition-all duration-700`;
-            metric.bar.style.width = `${barWidth}%`;
-        }
-    </script>
-
-    <!-- THE INTELLIGENCE PLATFORM (New Section) -->
-    <section class="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
-        <!-- Subtle Background Gradient -->
-        <div class="absolute inset-0 bg-gradient-to-b from-[#F5F7F9] to-white pointer-events-none"></div>
-
-        <!-- Background Orb/Glow for Ethereal feel -->
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-holo-blue/5 rounded-full blur-[100px] pointer-events-none">
-        </div>
-
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="scroll-reveal mb-20 text-center">
-                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-charcoal mb-6">
-                    The Intelligence Platform.
-                </h2>
-                <p class="font-inter text-charcoal/60 text-lg max-w-2xl mx-auto">
-                    Luma is the software layer that ingests your existing data to help you make better decisions.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1: Universal Ingestion -->
-                <div
-                    class="group bg-white/60 backdrop-blur-md border border-charcoal/5 p-8 rounded-3xl hover:shadow-xl hover:shadow-holo-blue/5 transition-all duration-500 hover:-translate-y-1">
-                    <div class="h-16 mb-8 flex items-center text-charcoal/80">
-                        <!-- Visual: File -> Twin -->
-                        <svg class="w-10 h-10 stroke-1" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                            <polyline points="14 2 14 8 20 8" />
-                        </svg>
-                        <svg class="w-6 h-6 mx-4 text-charcoal/20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14" />
-                            <path d="m12 5 7 7-7 7" />
-                        </svg>
-                        <svg class="w-10 h-10 stroke-1" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="8" r="5" />
-                            <path d="M20 21a8 8 0 0 0-16 0" />
-                        </svg>
-                    </div>
-                    <h3 class="font-playfair text-2xl text-charcoal mb-4">Bring Your Own Data.</h3>
-                    <p class="font-inter text-charcoal/60 text-sm leading-relaxed">
-                        You don't need new labs to start. We ingest PDFs from Quest/LabCorp, raw DNA files from 23andMe,
-                        and historical wearable data to build your baseline immediately.
-                    </p>
-                </div>
-
-                <!-- Card 2: The Validation Engine -->
-                <div
-                    class="group bg-white/60 backdrop-blur-md border border-charcoal/5 p-8 rounded-3xl hover:shadow-xl hover:shadow-holo-blue/5 transition-all duration-500 hover:-translate-y-1">
-                    <div class="h-16 mb-8 flex items-center text-charcoal/80">
-                        <!-- Visual: Shield Check -->
-                        <div class="relative">
-                            <svg class="w-12 h-12 stroke-1" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>
-                            <svg class="w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-holo-blue stroke-2"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12" />
-                            </svg>
+                <!-- FOOTER - Minimalist -->
+                <footer class="bg-charcoal text-white py-20 md:py-24 px-6 border-t border-white/10 relative">
+                    <div class="max-w-7xl mx-auto text-center">
+                        <div
+                            class="font-playfair text-8xl md:text-[10rem] leading-none text-white/5 font-bold mb-12 select-none">
+                            LUMA
                         </div>
-                    </div>
-                    <h3 class="font-playfair text-2xl text-charcoal mb-4">Audit Your Care.</h3>
-                    <p class="font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Your doctor prescribed a statin? An influencer suggested Carnivore? Run the simulation on your
-                        Twin first. See the 10-year impact before you commit.
-                    </p>
-                </div>
 
-                <!-- Card 3: Dynamic Optimization -->
-                <div
-                    class="group bg-white/60 backdrop-blur-md border border-charcoal/5 p-8 rounded-3xl hover:shadow-xl hover:shadow-holo-blue/5 transition-all duration-500 hover:-translate-y-1">
-                    <div class="h-16 mb-8 flex items-center text-charcoal/80">
-                        <!-- Visual: Refresh/Cycle -->
-                        <svg class="w-12 h-12 stroke-1 group-hover:rotate-180 transition-transform duration-700"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                            <path d="M3 3v5h5" />
-                            <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
-                            <path d="M16 21h5v-5" />
-                        </svg>
-                    </div>
-                    <h3 class="font-playfair text-2xl text-charcoal mb-4">Agile Protocols.</h3>
-                    <p class="font-inter text-charcoal/60 text-sm leading-relaxed">
-                        Health isn't static. As your data changes, your protocol adapts. We recommend the optimal mix of
-                        diet, drugs, and peptides to keep your biological age continuously suppressed.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <div
+                            class="flex flex-wrap justify-center gap-8 mb-16 font-space text-xs tracking-[0.2em] text-white/40">
+                            <span>HIPAA COMPLIANT</span>
+                            <span>//</span>
+                            <span>CLIA CERTIFIED</span>
+                            <span>//</span>
+                            <span>PHYSICIAN LED</span>
+                        </div>
 
-    <!-- THE SIMULATION LOGIC - Technical Diagram -->
-    <section class="py-24 md:py-32 px-6 bg-white relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 md:gap-24">
-                <div class="scroll-reveal md:sticky md:top-32 h-fit relative">
-                    <!-- DNA Helix Removed -->
-
-                    <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-charcoal mb-6 md:mb-8 leading-tight">
-                        We test on your Twin,<br>
-                        <span class="text-charcoal/30">not on you.</span>
-                    </h2>
-                    <p class="font-inter text-lg text-charcoal/60 leading-relaxed mb-12">
-                        Stop guessing with supplements. We simulate how your body reacts
-                        to peptides and protocols before you take a single dose.
-                    </p>
-                    <a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-                        class="inline-flex items-center gap-3 font-space text-xs tracking-[0.2em] text-charcoal uppercase border-b border-charcoal pb-1 hover:opacity-60 transition-opacity">
-                        Start Simulation
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-
-                <div class="space-y-24 pt-12 md:pt-0">
-                    <!-- Step 1 -->
-                    <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
-                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-charcoal"></div>
-                        <div class="font-space text-xs tracking-[0.2em] text-charcoal/40 mb-4 uppercase">Phase 01</div>
-                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Biometric Mapping</h3>
-                        <p class="font-inter text-charcoal/60 leading-relaxed">
-                            We aggregate your blood panels, wearable metrics, and DNA into a
-                            high-fidelity biological profile.
-                        </p>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
-                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-holo-blue"></div>
-                        <div class="font-space text-xs tracking-[0.2em] text-holo-blue mb-4 uppercase">Phase 02</div>
-                        <h3 class="font-playfair text-3xl text-charcoal mb-4">The Probability Engine</h3>
-                        <p class="font-inter text-charcoal/60 leading-relaxed">
-                            We run 10,000+ scenarios against your model to predict how your body
-                            reacts to specific peptides.
-                        </p>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="scroll-reveal relative pl-12 border-l border-charcoal/10">
-                        <div class="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-charcoal"></div>
-                        <div class="font-space text-xs tracking-[0.2em] text-charcoal/40 mb-4 uppercase">Phase 03</div>
-                        <h3 class="font-playfair text-3xl text-charcoal mb-4">Precision Deployment</h3>
-                        <p class="font-inter text-charcoal/60 leading-relaxed">
-                            You receive the single highest-probability protocol, verified by physicians
-                            for your unique biology.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER - Minimalist -->
-    <footer class="bg-charcoal text-white py-20 md:py-24 px-6 border-t border-white/10 relative">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="font-playfair text-8xl md:text-[10rem] leading-none text-white/5 font-bold mb-12 select-none">
-                LUMA
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-8 mb-16 font-space text-xs tracking-[0.2em] text-white/40">
-                <span>HIPAA COMPLIANT</span>
-                <span>//</span>
-                <span>CLIA CERTIFIED</span>
-                <span>//</span>
-                <span>PHYSICIAN LED</span>
-            </div>
-
-            <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="px-12 py-5 rounded-full bg-white hover:bg-white/90 
+                        <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="px-12 py-5 rounded-full bg-white hover:bg-white/90 
                        text-charcoal font-inter font-medium tracking-wide text-lg
                        transition-all duration-300 transform hover:scale-105">
-                Initialize Sequence
-            </button>
+                            Initialize Sequence
+                        </button>
 
-            <div
-                class="mt-24 flex justify-between items-end text-white/20 font-space text-[10px] uppercase tracking-wider">
-                <div>© 2025 Luma Health</div>
-                <div class="text-right">
-                    System Status: Online<br>
-                    Version 2.0.1
-                </div>
-            </div>
-        </div>
-    </footer>
+                        <div
+                            class="mt-24 flex justify-between items-end text-white/20 font-space text-[10px] uppercase tracking-wider">
+                            <div>© 2025 Luma Health</div>
+                            <div class="text-right">
+                                System Status: Online<br>
+                                Version 2.0.1
+                            </div>
+                        </div>
+                    </div>
+                </footer>
 
-    <script>
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '-100px'
-        };
+                <script>
+                    // Scroll reveal animation
+                    const observerOptions = {
+                        threshold: 0.1,
+                        rootMargin: '-100px'
+                    };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                            }
+                        });
+                    }, observerOptions);
 
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
+                    document.querySelectorAll('.scroll-reveal').forEach(el => {
+                        observer.observe(el);
+                    });
 
-        // Email form submission
-        document.getElementById('emailForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+                    // Email form submission
+                    document.getElementById('emailForm').addEventListener('submit', async (e) => {
+                        e.preventDefault();
 
-            const emailInput = document.getElementById('emailInput');
-            const statusMessage = document.getElementById('statusMessage');
-            const submitButton = e.target.querySelector('button[type="submit"]');
+                        const emailInput = document.getElementById('emailInput');
+                        const statusMessage = document.getElementById('statusMessage');
+                        const submitButton = e.target.querySelector('button[type="submit"]');
 
-            submitButton.disabled = true;
-            submitButton.innerHTML = 'Joining...';
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = 'Joining...';
 
-            try {
-                await fetch('https://script.google.com/macros/s/AKfycbxSSq6EiH2l9_7_m7ZLLzGwqLkKTGhaM5Jrvymf7vBL87EYXTQnUl5DXeCQ897_xUY/exec', {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: emailInput.value })
-                });
+                        try {
+                            await fetch('https://script.google.com/macros/s/AKfycbxSSq6EiH2l9_7_m7ZLLzGwqLkKTGhaM5Jrvymf7vBL87EYXTQnUl5DXeCQ897_xUY/exec', {
+                                method: 'POST',
+                                mode: 'no-cors',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ email: emailInput.value })
+                            });
 
-                statusMessage.textContent = '✓ You\'re on the list! We\'ll be in touch.';
-                statusMessage.className = 'text-center text-charcoal font-space text-xs mt-4';
-                statusMessage.classList.remove('hidden');
-                emailInput.value = '';
-            } catch (error) {
-                statusMessage.textContent = 'Something went wrong. Please try again.';
-                statusMessage.className = 'text-center text-red-600 font-space text-xs mt-4';
-                statusMessage.classList.remove('hidden');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.innerHTML = `Request Access <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>`;
-            }
-        });
+                            statusMessage.textContent = '✓ You\'re on the list! We\'ll be in touch.';
+                            statusMessage.className = 'text-center text-charcoal font-space text-xs mt-4';
+                            statusMessage.classList.remove('hidden');
+                            emailInput.value = '';
+                        } catch (error) {
+                            statusMessage.textContent = 'Something went wrong. Please try again.';
+                            statusMessage.className = 'text-center text-red-600 font-space text-xs mt-4';
+                            statusMessage.classList.remove('hidden');
+                        } finally {
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = `Request Access <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>`;
+                        }
+                    });
 
-        // Tab switching for Simulation Engine
-        function switchTab(tabName) {
-            // Remove active class from all tabs and content
-            document.querySelectorAll('.scenario-tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.scenario-content').forEach(content => content.classList.remove('active'));
+                    // Tab switching for Simulation Engine
+                    function switchTab(tabName) {
+                        // Remove active class from all tabs and content
+                        document.querySelectorAll('.scenario-tab').forEach(tab => tab.classList.remove('active'));
+                        document.querySelectorAll('.scenario-content').forEach(content => content.classList.remove('active'));
 
-            // Add active class to selected tab and content
-            document.getElementById(`tab-${tabName}`).classList.add('active');
-            document.getElementById(`content-${tabName}`).classList.add('active');
-        }
-    </script>
+                        // Add active class to selected tab and content
+                        document.getElementById(`tab-${tabName}`).classList.add('active');
+                        document.getElementById(`content-${tabName}`).classList.add('active');
+                    }
+                </script>
 </body>
 
 </html>
