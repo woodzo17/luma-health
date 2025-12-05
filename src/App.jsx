@@ -277,7 +277,7 @@ function App() {
 
                     <ScrollReveal delay={0.2}>
                         <p className="font-inter text-xl md:text-2xl text-charcoal/80 text-center mb-16 max-w-4xl mx-auto leading-relaxed">
-                            Traditional medicine waits for you to break. Luma predicts the fracture.
+                            Traditional medicine waits for you to break. Luvo predicts the fracture.
                             We use your bloodwork, wearables, and DNA to build a living digital model of your health.
                         </p>
                     </ScrollReveal>
@@ -304,7 +304,7 @@ function App() {
                                 <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-holo-blue/30 flex items-center justify-center">
                                     <Check className="w-5 h-5 text-holo-blue" />
                                 </div>
-                                <h3 className="font-space text-sm tracking-wider text-charcoal/60 mb-2 uppercase">Luma Twin</h3>
+                                <h3 className="font-space text-sm tracking-wider text-charcoal/60 mb-2 uppercase">Luvo Twin</h3>
                                 <h4 className="font-playfair text-3xl text-charcoal mb-4">Predictive</h4>
                                 <ul className="space-y-3 font-inter text-charcoal/90 font-medium">
                                     <li>• Continuous monitoring</li>
