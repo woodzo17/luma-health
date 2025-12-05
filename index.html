@@ -692,19 +692,19 @@
             <!-- Flow Chart / Timeline -->
             <div class="relative">
                 <!-- Connecting Line (Desktop Only) -->
-                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-charcoal/5 z-0"></div>
+                <div class="hidden md:block absolute top-10 left-0 w-full h-0.5 bg-charcoal/5 z-0"></div>
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
 
                     <!-- Node 1: Questionnaire -->
                     <div
-                        class="group relative bg-white p-8 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                        class="group relative bg-white p-6 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
                         <div
-                            class="w-24 h-24 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-charcoal/10 transition-colors">
+                            class="w-20 h-20 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-charcoal/10 transition-colors">
                             <span
-                                class="font-space text-2xl font-bold text-charcoal/20 group-hover:text-charcoal transition-colors">01</span>
+                                class="font-space text-xl font-bold text-charcoal/20 group-hover:text-charcoal transition-colors">01</span>
                         </div>
-                        <h3 class="font-playfair text-xl text-charcoal mb-3">Questionnaire</h3>
+                        <h3 class="font-playfair text-lg text-charcoal mb-3">Questionnaire</h3>
                         <div
                             class="inline-block px-3 py-1 bg-charcoal text-white text-[10px] font-space tracking-widest uppercase rounded-full mb-3">
                             Required</div>
@@ -713,37 +713,52 @@
 
                     <!-- Node 2: Wearable Data -->
                     <div
-                        class="group relative bg-white p-8 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                        class="group relative bg-white p-6 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
                         <div
-                            class="w-24 h-24 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-holo-blue/30 transition-colors">
+                            class="w-20 h-20 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-holo-blue/30 transition-colors">
                             <span
-                                class="font-space text-2xl font-bold text-charcoal/20 group-hover:text-holo-blue transition-colors">02</span>
+                                class="font-space text-xl font-bold text-charcoal/20 group-hover:text-holo-blue transition-colors">02</span>
                         </div>
-                        <h3 class="font-playfair text-xl text-charcoal mb-3">Wearable Data</h3>
+                        <h3 class="font-playfair text-lg text-charcoal mb-3">Wearable Data</h3>
                         <div
                             class="inline-block px-3 py-1 bg-holo-blue/10 text-holo-blue text-[10px] font-space tracking-widest uppercase rounded-full mb-3">
                             Recommended</div>
                         <p class="font-inter text-xs text-charcoal/50">Enhanced Simulation</p>
                     </div>
 
-                    <!-- Node 3: Clinical Bloodwork -->
+                    <!-- Node 3: Body Comp Scan (New) -->
                     <div
-                        class="group relative bg-white p-8 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                        class="group relative bg-white p-6 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
                         <div
-                            class="w-24 h-24 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-holo-blue/30 transition-colors">
+                            class="w-20 h-20 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-holo-blue/30 transition-colors">
                             <span
-                                class="font-space text-2xl font-bold text-charcoal/20 group-hover:text-holo-blue transition-colors">03</span>
+                                class="font-space text-xl font-bold text-charcoal/20 group-hover:text-holo-blue transition-colors">03</span>
                         </div>
-                        <h3 class="font-playfair text-xl text-charcoal mb-3">Clinical Bloodwork</h3>
+                        <h3 class="font-playfair text-lg text-charcoal mb-3">Body Comp Scan</h3>
+                        <div
+                            class="inline-block px-3 py-1 bg-holo-blue/10 text-holo-blue text-[10px] font-space tracking-widest uppercase rounded-full mb-3">
+                            Recommended</div>
+                        <p class="font-inter text-xs text-charcoal/50">Quantifies Structural Risk</p>
+                    </div>
+
+                    <!-- Node 4: Clinical Bloodwork -->
+                    <div
+                        class="group relative bg-white p-6 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                        <div
+                            class="w-20 h-20 mx-auto bg-white border-4 border-[#F5F7F9] rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:border-holo-blue/30 transition-colors">
+                            <span
+                                class="font-space text-xl font-bold text-charcoal/20 group-hover:text-holo-blue transition-colors">04</span>
+                        </div>
+                        <h3 class="font-playfair text-lg text-charcoal mb-3">Clinical Bloodwork</h3>
                         <div
                             class="inline-block px-3 py-1 bg-holo-blue/10 text-holo-blue text-[10px] font-space tracking-widest uppercase rounded-full mb-3">
                             Recommended</div>
                         <p class="font-inter text-xs text-charcoal/50">Unlocks Prescriptive Accuracy</p>
                     </div>
 
-                    <!-- Node 4: DNA Sequencing (Ultimate) -->
+                    <!-- Node 5: DNA Sequencing (Ultimate) -->
                     <div
-                        class="group relative bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center overflow-hidden">
+                        class="group relative bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center overflow-hidden">
                         <!-- Gradient Border Effect -->
                         <div
                             class="absolute inset-0 p-[1px] rounded-3xl bg-gradient-to-br from-amber-300 via-yellow-200 to-cyan-300 opacity-50 group-hover:opacity-100 transition-opacity">
@@ -751,12 +766,12 @@
                         <div class="absolute inset-[1px] bg-white rounded-[23px]"></div>
 
                         <div class="relative z-10">
-                            <div class="w-24 h-24 mx-auto bg-white border-4 border-transparent rounded-full flex items-center justify-center mb-6 relative z-10"
+                            <div class="w-20 h-20 mx-auto bg-white border-4 border-transparent rounded-full flex items-center justify-center mb-6 relative z-10"
                                 style="background-image: linear-gradient(white, white), linear-gradient(to right, #FCD34D, #67E8F9); background-origin: border-box; background-clip: content-box, border-box;">
                                 <span
-                                    class="font-space text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-cyan-400">04</span>
+                                    class="font-space text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-cyan-400">05</span>
                             </div>
-                            <h3 class="font-playfair text-xl text-charcoal mb-3">DNA Sequencing</h3>
+                            <h3 class="font-playfair text-lg text-charcoal mb-3">DNA Sequencing</h3>
                             <div
                                 class="inline-block px-3 py-1 bg-gradient-to-r from-amber-100 to-cyan-100 text-charcoal/80 text-[10px] font-space tracking-widest uppercase rounded-full mb-3 font-bold">
                                 Ultimate</div>
