@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // turbo
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, 
@@ -8,6 +8,7 @@ import { Activity, Moon, Zap } from 'lucide-react';
 
 // --- UTILITIES ---
 const formatDate = (dateString) => {
+  if (!dateString) return '--/--';
   const date = new Date(dateString);
   return `${date.getMonth() + 1}/${date.getDate()}`;
 };
@@ -62,6 +63,7 @@ const WhoopDashboard = () => {
         setData(json);
       } catch (err) {
         console.error(err);
+        setData({ error: err.message });
       } finally {
         setLoading(false);
       }
@@ -77,15 +79,22 @@ const WhoopDashboard = () => {
 
   if (!data) return null;
 
-  const { latest, history } = data;
+  // SAFE ERROR HANDLING
+  if (data.error) {
+      return (
+        <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4">
+            <h2 className="text-red-500 font-playfair text-3xl mb-4">Data Stream Corrupted</h2>
+            <p className="text-white/60 font-inter mb-8">{data.error}</p>
+            <a href="/api/whoop/auth" className="text-holo-blue hover:text-white underline">Reconnect Interface</a>
+        </div>
+      );
+  }
+
+  const { latest = {}, history = {} } = data;
+  const recoveryRecs = history.recovery || [];
   
   // Transform Data for Charts
-  // We need to match recovery, sleep, strain by date. 
-  // Whoop dates are usually in specific formats, here we assume mapped by index or we align them.
-  // For simplicity V2, let's just reverse the recovery array (newest first -> oldest) to plot timeline oldest -> newest.
-  const chartData = history.recovery?.slice().reverse().map(req => {
-     // Find matching strain (cycle)
-     // This is a naive match, usually you match by 'cycle_id', but for visual demo this is okay.
+  const chartData = recoveryRecs.slice().reverse().map(req => {
      return {
         date: formatDate(req.created_at),
         recovery: req.score?.recovery_score || 0,
@@ -121,7 +130,7 @@ const WhoopDashboard = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <StatCard 
                 title="Recovery" 
-                value={latest.recovery?.score?.recovery_score || 0} 
+                value={latest.recovery?.score?.recovery_score || '--'} 
                 label="%" 
                 icon={Activity} 
                 color="green" 
@@ -129,7 +138,7 @@ const WhoopDashboard = () => {
             />
             <StatCard 
                 title="Strain" 
-                value={Math.round(latest.cycle?.score?.strain || 0)} 
+                value={latest.cycle?.score?.strain ? Math.round(latest.cycle.score.strain) : '--'} 
                 label="/ 21" 
                 icon={Zap} 
                 color="blue" 
@@ -137,7 +146,7 @@ const WhoopDashboard = () => {
             />
              <StatCard 
                 title="Sleep" 
-                value={latest.sleep?.score?.sleep_performance_percentage || 0} 
+                value={latest.sleep?.score?.sleep_performance_percentage || '--'} 
                 label="PERFORMANCE" 
                 icon={Moon} 
                 color="purple" 
