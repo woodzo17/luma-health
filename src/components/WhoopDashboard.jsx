@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, 
-  LineChart, Line, BarChart, Bar, CartesianGrid 
+  CartesianGrid 
 } from 'recharts';
 import { Activity, Moon, Zap } from 'lucide-react';
+import SystemLoader from './SystemLoader';
 
 // --- UTILITIES ---
 const formatDate = (dateString) => {
@@ -54,7 +55,8 @@ const WhoopDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/whoop/data?days=30');
+        // Fetch default (which is now ~100 records via pagination)
+        const res = await fetch('/api/whoop/data');
         if (res.status === 401) {
             window.location.href = '/api/whoop/auth';
             return;
@@ -65,17 +67,15 @@ const WhoopDashboard = () => {
         console.error(err);
         setData({ error: err.message });
       } finally {
+        // Optional: Artificial delay to show off the loader if it's too fast?
+        // Let's keep it real for now, the 4x requests will take ~1-2s anyway.
         setLoading(false);
       }
     };
     fetchData();
   }, []);
 
-  if (loading) return (
-    <div className="min-h-screen bg-neutral-900 flex items-center justify-center">
-        <div className="animate-pulse text-white font-space tracking-widest">INITIALIZING LINK...</div>
-    </div>
-  );
+  if (loading) return <SystemLoader />;
 
   if (!data) return null;
 
@@ -90,18 +90,24 @@ const WhoopDashboard = () => {
       );
   }
 
-  const { latest = {}, history = {} } = data;
+  const latest = data.latest || {};
+  const history = data.history || {};
   const recoveryRecs = history.recovery || [];
   
   // Transform Data for Charts
-  const chartData = recoveryRecs.slice().reverse().map(req => {
+  const chartData = (recoveryRecs.length > 0) ? recoveryRecs.slice().reverse().map(req => {
      return {
         date: formatDate(req.created_at),
         recovery: req.score?.recovery_score || 0,
         hrv: req.score?.hrv_rmssd_milli || 0,
         rhr: req.score?.resting_heart_rate || 0,
      };
-  }) || [];
+  }) : [];
+
+  // Safe Accessors
+  const recoveryScore = latest.recovery?.score?.recovery_score ?? '--';
+  const strainScore = latest.cycle?.score?.strain ? Math.round(latest.cycle.score.strain) : '--';
+  const sleepScore = latest.sleep?.score?.sleep_performance_percentage ?? '--';
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white p-4 md:p-8 font-inter selection:bg-red-500/30">
@@ -117,7 +123,7 @@ const WhoopDashboard = () => {
                     Digital Twin <span className="text-red-500">.</span>
                 </h1>
                 <p className="font-space text-xs tracking-widest text-white/50 uppercase">
-                    Biometric Synchronization Active
+                    Sync Complete :: {chartData.length} Datapoints Analyzed
                 </p>
             </div>
             
@@ -130,7 +136,7 @@ const WhoopDashboard = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <StatCard 
                 title="Recovery" 
-                value={latest.recovery?.score?.recovery_score || '--'} 
+                value={recoveryScore} 
                 label="%" 
                 icon={Activity} 
                 color="green" 
@@ -138,7 +144,7 @@ const WhoopDashboard = () => {
             />
             <StatCard 
                 title="Strain" 
-                value={latest.cycle?.score?.strain ? Math.round(latest.cycle.score.strain) : '--'} 
+                value={strainScore} 
                 label="/ 21" 
                 icon={Zap} 
                 color="blue" 
@@ -146,7 +152,7 @@ const WhoopDashboard = () => {
             />
              <StatCard 
                 title="Sleep" 
-                value={latest.sleep?.score?.sleep_performance_percentage || '--'} 
+                value={sleepScore} 
                 label="PERFORMANCE" 
                 icon={Moon} 
                 color="purple" 
@@ -158,7 +164,7 @@ const WhoopDashboard = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             
             {/* RECOVERY TREND */}
-            <ChartCard title="30-Day Recovery Trend" delay={0.4}>
+            <ChartCard title="Long-Term Recovery Trend" delay={0.4}>
                 <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={chartData}>
                         <defs>
@@ -178,7 +184,7 @@ const WhoopDashboard = () => {
                             type="monotone" 
                             dataKey="recovery" 
                             stroke="#22c55e" 
-                            strokeWidth={3}
+                            strokeWidth={2}
                             fillOpacity={1} 
                             fill="url(#colorRecovery)" 
                         />
@@ -187,7 +193,7 @@ const WhoopDashboard = () => {
             </ChartCard>
 
             {/* HRV vs RHR */}
-            <ChartCard title="Heart Rate Variability" delay={0.5}>
+            <ChartCard title="Biometric Variability" delay={0.5}>
                 <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={chartData}>
                         <defs>
@@ -207,7 +213,7 @@ const WhoopDashboard = () => {
                             type="monotone" 
                             dataKey="hrv" 
                             stroke="#3b82f6" 
-                            strokeWidth={3}
+                            strokeWidth={2}
                             fillOpacity={1} 
                             fill="url(#colorHrv)" 
                         />
