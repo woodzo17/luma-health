@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { Zap, Activity, Brain, Heart, Shield, Check, X } from 'lucide-react'
 import './App.css'
+import WhoopConnect from './components/WhoopConnect'
 
 // Scroll reveal animation component
 function ScrollReveal({ children, delay = 0 }) {
@@ -251,7 +252,13 @@ function App() {
                                 )}
                             </motion.form>
 
-                            {/* Footer Note */}
+                            
+                            {/* Whoop Integration */}
+                            <div className="mt-8 pt-8 border-t border-white/30">
+                                <WhoopConnect />
+                            </div>
+
+{/* Footer Note */}
                             <motion.p
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
