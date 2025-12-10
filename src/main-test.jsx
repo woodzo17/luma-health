@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import TestWhoop from './TestWhoop.jsx'
+import WhoopDashboard from './components/WhoopDashboard.jsx'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        <TestWhoop />
+        <WhoopDashboard />
     </StrictMode>,
 )
