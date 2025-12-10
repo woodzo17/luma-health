@@ -6,6 +6,6 @@ import TestWhoop from './TestWhoop.jsx'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        {window.location.pathname === '/test' ? <TestWhoop /> : <App />}
+        {window.location.pathname.startsWith('/test') ? <TestWhoop /> : <App />}
     </StrictMode>,
 )
