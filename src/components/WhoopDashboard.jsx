@@ -13,14 +13,14 @@ const formatDate = (dateString, includeYear = false) => {
   const date = new Date(dateString);
   const m = date.getMonth() + 1;
   const d = date.getDate();
-  return includeYear ? \`\${m}/\${d}/\${date.getFullYear().toString().substr(-2)}\` : \`\${m}/\${d}\`;
+  return includeYear ? `${m}/${d}/${date.getFullYear().toString().substr(-2)}` : `${m}/${d}`;
 };
 
 const msToHrs = (ms) => {
     if (!ms) return '0h 0m';
     const hrs = Math.floor(ms / 3600000);
     const mins = Math.round((ms % 3600000) / 60000);
-    return \`\${hrs}h \${mins}m\`;
+    return `${hrs}h ${mins}m`;
 };
 
 // Calculate percent change
@@ -62,7 +62,7 @@ const DirectiveCard = ({ recovery, strain, sleep, delay }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay, duration: 0.6 }}
-            className={\`rounded-3xl p-8 border backdrop-blur-xl mb-8 \${colors[type]} relative overflow-hidden\`}
+            className={`rounded-3xl p-8 border backdrop-blur-xl mb-8 ${colors[type]} relative overflow-hidden`}
         >
             <div className="absolute top-0 right-0 p-32 bg-white/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
             <h3 className="font-playfair text-3xl mb-2 text-white">{title}</h3>
@@ -81,7 +81,7 @@ const StatCard = ({ title, value, label, icon: Icon, color, delay, subValue }) =
     className="bg-zinc-900/50 rounded-2xl p-5 border border-white/5 hover:border-white/10 transition-colors group"
   >
     <div className="flex justify-between items-start mb-4">
-        <div className={\`p-2 rounded-lg bg-\${color}-500/10 text-\${color}-400 group-hover:bg-\${color}-500/20 transition-colors\`}>
+        <div className={`p-2 rounded-lg bg-${color}-500/10 text-${color}-400 group-hover:bg-${color}-500/20 transition-colors`}>
             <Icon className="w-5 h-5" />
         </div>
         {subValue && <span className="text-xs font-mono text-white/30">{subValue}</span>}
@@ -100,7 +100,7 @@ const ChartCard = ({ title, children, delay, className }) => (
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay, duration: 0.6 }}
-        className={\`bg-zinc-900/30 rounded-3xl p-6 border border-white/5 \${className}\`}
+        className={`bg-zinc-900/30 rounded-3xl p-6 border border-white/5 ${className}`}
     >
         <h3 className="font-playfair text-xl text-white/90 mb-6">{title}</h3>
         <div className="h-[250px] w-full">
@@ -216,7 +216,7 @@ const WhoopDashboard = () => {
             <h4 className="font-space text-xs text-white/40 uppercase tracking-widest mb-6">Current Status</h4>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
                 <StatCard 
-                    title="Recovery" value={\`\${recoveryScore}%\`} label="Capacity"
+                    title="Recovery" value={`${recoveryScore}%`} label="Capacity"
                     icon={Battery} color={recoveryScore >= 67 ? 'green' : recoveryScore <= 33 ? 'red' : 'yellow'} delay={0.2}
                 />
                  <StatCard 
@@ -224,7 +224,7 @@ const WhoopDashboard = () => {
                     icon={Zap} color="blue" delay={0.25}
                 />
                  <StatCard 
-                    title="Sleep Perf" value={\`\${sleepScore}%\`} label="Quality"
+                    title="Sleep Perf" value={`${sleepScore}%`} label="Quality"
                     icon={Moon} color="purple" delay={0.3}
                 />
                  <StatCard 
@@ -281,7 +281,7 @@ const WhoopDashboard = () => {
                              <Scatter name="Training Load" data={scatterData}>
                                 {scatterData.map((entry, index) => (
                                     <Cell 
-                                        key={\`cell-\${index}\`} 
+                                        key={`cell-${index}`} 
                                         fill={entry.recovery < 33 ? '#ef4444' : entry.recovery > 66 ? '#22c55e' : '#eab308'} 
                                         strokeWidth={0}
                                     />
