@@ -11,7 +11,7 @@ import SystemLoader from './SystemLoader';
 const formatDate = (dateString) => {
   if (!dateString) return '--/--';
   const date = new Date(dateString);
-  return \`\${date.getMonth() + 1}/\${date.getDate()}\`;
+  return `${date.getMonth() + 1}/${date.getDate()}`;
 };
 
 // --- DATA PROCESSING HELPERS ---
@@ -21,7 +21,7 @@ const processMonthlyData = (recoveryRecs, startMonthIndex = 0) => {
     
     recoveryRecs.forEach(rec => {
         const d = new Date(rec.created_at);
-        const key = \`\${d.toLocaleString('default', { month: 'short' })}\`; // e.g. "Dec"
+        const key = `${d.toLocaleString('default', { month: 'short' })}`; // e.g. "Dec"
         
         if (!groups[key]) {
             groups[key] = { count: 0, recoverySum: 0, hrvSum: 0, rhrSum: 0, records: [] };
@@ -101,14 +101,14 @@ const PercentileBar = ({ label, value, avg, type /* 'higher-better' | 'lower-bet
             </div>
             <div className="h-4 bg-white/5 rounded-full relative w-full overflow-hidden">
                 {/* Population Avg Marker */}
-                <div className="absolute top-0 bottom-0 w-1 bg-white/20 z-10" style={{ left: \`\${avgPct}%\` }} />
+                <div className="absolute top-0 bottom-0 w-1 bg-white/20 z-10" style={{ left: `${avgPct}%` }} />
                 
                 {/* User Value */}
                 <motion.div 
                     initial={{ width: 0 }}
-                    animate={{ width: \`\${valPct}%\` }}
+                    animate={{ width: `${valPct}%` }}
                     transition={{ duration: 1, delay: 0.5 }}
-                    className={\`h-full rounded-full \${value > avg ? 'bg-green-500' : 'bg-blue-500'}\`}
+                    className={`h-full rounded-full ${value > avg ? 'bg-green-500' : 'bg-blue-500'}`}
                 />
             </div>
         </div>
@@ -153,8 +153,8 @@ const WhoopDashboard = () => {
 
   // 2. User Averages (Last 30 Days)
   const last30 = recoveryRecs.slice(0, 30);
-  const avgHRV = Math.round(last30.reduce((acc, curr) => acc + (curr.score?.hrv_rmssd_milli || 0), 0) / last30.length);
-  const avgRHR = Math.round(last30.reduce((acc, curr) => acc + (curr.score?.resting_heart_rate || 0), 0) / last30.length);
+  const avgHRV = Math.round(last30.reduce((acc, curr) => acc + (curr.score?.hrv_rmssd_milli || 0), 0) / (last30.length || 1));
+  const avgRHR = Math.round(last30.reduce((acc, curr) => acc + (curr.score?.resting_heart_rate || 0), 0) / (last30.length || 1));
 
   // 3. Percentiles
   const hrvRank = getPercentileRank(avgHRV, 'hrv');
@@ -189,7 +189,7 @@ const WhoopDashboard = () => {
                             />
                             <Bar yAxisId="left" dataKey="avgRecovery" name="Avg Recovery" barSize={40} fill="#3b82f6" radius={[4, 4, 0, 0]}>
                                 {monthlyStats.map((entry, index) => (
-                                    <Cell key={\`cell-\${index}\`} fill={entry.avgRecovery >= 67 ? '#22c55e' : entry.avgRecovery <= 33 ? '#ef4444' : '#eab308'} fillOpacity={0.8} />
+                                    <Cell key={`cell-${index}`} fill={entry.avgRecovery >= 67 ? '#22c55e' : entry.avgRecovery <= 33 ? '#ef4444' : '#eab308'} fillOpacity={0.8} />
                                 ))}
                             </Bar>
                             <Line yAxisId="right" type="monotone" dataKey="avgHRV" name="Avg HRV" stroke="#a855f7" strokeWidth={3} dot={{r: 4, fill: '#a855f7'}} />
@@ -200,21 +200,21 @@ const WhoopDashboard = () => {
                 <div className="mt-8 grid grid-cols-3 gap-4">
                     <InsightCard 
                         title="Avg Recovery" 
-                        value={\`\${Math.round(monthlyStats[monthlyStats.length-1]?.avgRecovery || 0)}%\`} 
+                        value={`${Math.round(monthlyStats[monthlyStats.length-1]?.avgRecovery || 0)}%`} 
                         subtext="Last Month Avg" 
                         icon={Battery} 
                         delay={0.2} 
                     />
                     <InsightCard 
                         title="Avg HRV" 
-                        value={\`\${Math.round(monthlyStats[monthlyStats.length-1]?.avgHRV || 0)}ms\`} 
+                        value={`${Math.round(monthlyStats[monthlyStats.length-1]?.avgHRV || 0)}ms`} 
                         subtext="Trending Upwards" 
                         icon={Activity} 
                         delay={0.3} 
                     />
                      <InsightCard 
                         title="Log Consistency" 
-                        value={\`\${monthlyStats[monthlyStats.length-1]?.count || 0}\`} 
+                        value={`${monthlyStats[monthlyStats.length-1]?.count || 0}`} 
                         subtext="Days Logged" 
                         icon={TrendingUp} 
                         delay={0.4} 
@@ -233,7 +233,7 @@ const WhoopDashboard = () => {
                         <div className="mb-8">
                              <div className="flex justify-between items-end mb-2">
                                 <span className="text-xl font-playfair text-white">HRV Capacity</span>
-                                <span className={\`text-sm font-bold \${hrvRank.color}\`}>{hrvRank.rank}</span>
+                                <span className={`text-sm font-bold ${hrvRank.color}`}>{hrvRank.rank}</span>
                              </div>
                              <PercentileBar label="Heart Rate Variability" value={avgHRV} avg={55} type="higher-better" />
                              <p className="text-xs text-white/40 leading-relaxed">
@@ -246,7 +246,7 @@ const WhoopDashboard = () => {
                         <div>
                              <div className="flex justify-between items-end mb-2">
                                 <span className="text-xl font-playfair text-white">Cardio Health</span>
-                                <span className={\`text-sm font-bold \${rhrRank.color}\`}>{rhrRank.rank}</span>
+                                <span className={`text-sm font-bold ${rhrRank.color}`}>{rhrRank.rank}</span>
                              </div>
                              <PercentileBar label="Resting Heart Rate" value={avgRHR} avg={58} type="lower-better" />
                              <p className="text-xs text-white/40 leading-relaxed">
