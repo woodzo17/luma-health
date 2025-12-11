@@ -8,10 +8,12 @@ import { Activity, Moon, Zap, Trophy, Users, TrendingUp, Battery } from 'lucide-
 import SystemLoader from './SystemLoader';
 
 // --- UTILITIES ---
-const formatDate = (dateString) => {
+const formatDate = (dateString, includeYear = false) => {
   if (!dateString) return '--/--';
   const date = new Date(dateString);
-  return `${date.getMonth() + 1}/${date.getDate()}`;
+  const m = date.getMonth() + 1;
+  const d = date.getDate();
+  return includeYear ? `${m}/${d}/${date.getFullYear().toString().substr(-2)}` : `${m}/${d}`;
 };
 
 // --- DATA PROCESSING HELPERS ---
@@ -87,7 +89,7 @@ const InsightCard = ({ title, value, subtext, icon: Icon, delay }) => (
     </motion.div>
 );
 
-const PercentileBar = ({ label, value, avg, type /* 'higher-better' | 'lower-better' */ }) => {
+const PercentileBar = ({ label, value, avg, type }) => {
     // Simple visualizer: 0 to 120 range roughly
     const max = 120;
     const valPct = Math.min((value / max) * 100, 100);
@@ -115,20 +117,64 @@ const PercentileBar = ({ label, value, avg, type /* 'higher-better' | 'lower-bet
     );
 };
 
+// NEW: Clinical Data Visualization Card
+const ClinicalCard = ({ title, data, delay }) => (
+    <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay, duration: 0.6 }}
+        className="bg-zinc-900/30 rounded-3xl p-6 border border-white/5 h-full"
+    >
+        <div className="flex items-center gap-3 mb-6">
+            <Activity className="w-5 h-5 text-indigo-400" />
+            <h3 className="font-playfair text-xl text-white/90">{title}</h3>
+        </div>
+        
+        {(!data || data.length === 0) ? (
+            <p className="text-sm text-white/30 font-inter">No clinical data found.</p>
+        ) : (
+            <div className="space-y-4">
+                {data.map((item, i) => (
+                    <div key={i} className="flex justify-between items-center border-b border-white/5 pb-3 last:border-0 hover:bg-white/5 p-2 rounded transition-colors">
+                        <div>
+                            <p className="text-sm text-white/80 font-medium">{item.type}</p>
+                            <p className="text-[10px] text-white/40 font-mono">{formatDate(item.date, true)}</p>
+                        </div>
+                        <div className="text-right">
+                             <p className="text-lg font-playfair text-white">{item.value} <span className="text-xs text-white/40 font-inter">{item.unit}</span></p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        )}
+    </motion.div>
+);
+
 const WhoopDashboard = () => {
   const [data, setData] = useState(null);
+  const [clinicalData, setClinicalData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/whoop/data');
-        if (res.status === 401) {
+        // Parallel Fetch for Performance
+        const [whoopRes, ehrRes] = await Promise.all([
+            fetch('/api/whoop/data'),
+            fetch('/api/ehr/parse')
+        ]);
+
+        if (whoopRes.status === 401) {
             window.location.href = '/api/whoop/auth';
             return;
         }
-        const json = await res.json();
-        setData(json);
+
+        const whoopJson = await whoopRes.json();
+        // EHR might fail gracefully if no file exists
+        const ehrJson = ehrRes.ok ? await ehrRes.json() : { labResults: [] };
+
+        setData(whoopJson);
+        setClinicalData(ehrJson);
       } catch (err) {
         console.error(err);
         setData({ error: err.message });
@@ -148,7 +194,6 @@ const WhoopDashboard = () => {
   // --- ANALYSIS ---
   
   // 1. Monthly Aggregation
-  // Reverse to get Jan -> Feb -> Mar order
   const monthlyStats = processMonthlyData(recoveryRecs).reverse();
 
   // 2. User Averages (Last 30 Days)
@@ -160,6 +205,9 @@ const WhoopDashboard = () => {
   const hrvRank = getPercentileRank(avgHRV, 'hrv');
   const rhrRank = getPercentileRank(avgRHR, 'rhr');
 
+  // 4. Clinical Data (Top 5 Recent Labs)
+  const labResults = clinicalData?.labResults?.slice(0, 5) || [];
+
   return (
     <div className="min-h-screen bg-[#050505] text-white p-6 md:p-12 font-inter selection:bg-indigo-500/30">
         
@@ -167,7 +215,7 @@ const WhoopDashboard = () => {
             <h1 className="font-playfair text-4xl text-white mb-2">
                 Long-Term Analysis <span className="text-indigo-500">.</span>
             </h1>
-            <p className="font-mono text-xs text-white/40">MONTHLY AVERAGES & POPULATION BENCHMARKS</p>
+            <p className="font-mono text-xs text-white/40">MONTHLY AVERAGES & CLINICAL BIOMARKERS</p>
         </header>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -176,7 +224,7 @@ const WhoopDashboard = () => {
             <div className="lg:col-span-8">
                 <h3 className="font-space text-xs tracking-widest text-white/40 uppercase mb-8">Monthly Performance</h3>
                 
-                <div className="h-[400px] w-full bg-zinc-900/30 rounded-3xl p-6 border border-white/5">
+                <div className="h-[400px] w-full bg-zinc-900/30 rounded-3xl p-6 border border-white/5 mb-8">
                     <ResponsiveContainer width="100%" height="100%">
                         <ComposedChart data={monthlyStats}>
                             <CartesianGrid strokeDasharray="3 3" stroke="#222" vertical={false} />
@@ -197,28 +245,34 @@ const WhoopDashboard = () => {
                     </ResponsiveContainer>
                 </div>
 
-                <div className="mt-8 grid grid-cols-3 gap-4">
-                    <InsightCard 
-                        title="Avg Recovery" 
-                        value={`${Math.round(monthlyStats[monthlyStats.length-1]?.avgRecovery || 0)}%`} 
-                        subtext="Last Month Avg" 
-                        icon={Battery} 
-                        delay={0.2} 
-                    />
-                    <InsightCard 
-                        title="Avg HRV" 
-                        value={`${Math.round(monthlyStats[monthlyStats.length-1]?.avgHRV || 0)}ms`} 
-                        subtext="Trending Upwards" 
-                        icon={Activity} 
-                        delay={0.3} 
-                    />
-                     <InsightCard 
-                        title="Log Consistency" 
-                        value={`${monthlyStats[monthlyStats.length-1]?.count || 0}`} 
-                        subtext="Days Logged" 
-                        icon={TrendingUp} 
-                        delay={0.4} 
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Clinical Data Card */}
+                    <ClinicalCard title="Clinical Biomarkers" data={labResults} delay={0.4} />
+
+                    {/* Insight Cards */}
+                    <div className="grid grid-cols-2 gap-4 h-min content-start">
+                         <InsightCard 
+                            title="Avg Recovery" 
+                            value={`${Math.round(monthlyStats[monthlyStats.length-1]?.avgRecovery || 0)}%`} 
+                            subtext="Last Month Avg" 
+                            icon={Battery} 
+                            delay={0.2} 
+                        />
+                        <InsightCard 
+                            title="Avg HRV" 
+                            value={`${Math.round(monthlyStats[monthlyStats.length-1]?.avgHRV || 0)}ms`} 
+                            subtext="Trending Upwards" 
+                            icon={Activity} 
+                            delay={0.3} 
+                        />
+                         <InsightCard 
+                            title="Log Consistency" 
+                            value={`${monthlyStats[monthlyStats.length-1]?.count || 0}`} 
+                            subtext="Days Logged" 
+                            icon={TrendingUp} 
+                            delay={0.4} 
+                        />
+                    </div>
                 </div>
             </div>
 
@@ -267,7 +321,10 @@ const WhoopDashboard = () => {
                         <h4 className="font-bold text-indigo-100">Performance Summary</h4>
                     </div>
                     <p className="text-sm text-indigo-200/60 leading-relaxed">
-                        You are outperforming <strong>{hrvRank.percentile}%</strong> of the population in stress adaptation (HRV). Focus on maintaining this baseline to support higher training volumes next month.
+                        You are outperforming <strong>{hrvRank.percentile}%</strong> of the population. 
+                        {clinicalData?.labResults?.length > 0 && (
+                            <><br/><br/><strong>Clinical Integration Active:</strong> {clinicalData.labResults.length} biomarkers synced from EHR.</>
+                        )}
                     </p>
                 </motion.div>
             </div>

@@ -1,5 +1,9 @@
 {
+  "functions": {
+    "api/**/*.js": { "memory": 1024, "maxDuration": 10 }
+  },
   "rewrites": [
+    { "source": "/api/ehr/parse", "destination": "/api/ehr/parse.js" },
     { "source": "/((?!api/.*).*)", "destination": "/index.html" }
   ]
 }
